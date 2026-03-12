@@ -1,0 +1,43 @@
+- Install Docker desktop
+  - For windows:  https://docs.docker.com/desktop/install/windows-install/
+  - create a file docker-compose.yml with content:
+    version: "3.9"
+    services:
+      dev-consul-server:
+       image: consul:latest
+       container_name: consul-server
+       restart: unless-stopped
+       ports:
+         - "8300:8300"
+         - "8400:8400"
+         - "8500:8500"
+         - "8600:8600"
+         - "8600:8600/udp"
+       volumes:
+         - /[user home]/JavaDev/consul.d:/etc/consul.d/:rw
+       environment:
+         - CONSUL_BOOTSTRAP_EXPECT=3
+         - CONSUL_CLIENT_LAN_ADDRESS=0.0.0.0
+         - CONSUL_DISABLE_KEYRING_FILE=true
+         - CONSUL_RETRY_JOIN=dev
+       command: [ "consul", "agent", "-bootstrap-expect=1", "-server", "-data-dir=/consul/data", "-config-dir=/etc/consul.d", "-bind={{ GetInterfaceIP \"eth0\" }}", "-client=0.0.0.0", "-ui"]
+   - run from the folder where you created the file docker-compose.yml: docker compose up -d
+- Using ActiveMQ
+  - Checkout repo gf-ifcs-messaging-activemq
+    - create a file credentials.properties under resources folder with content:
+      activemq.username=system
+      activemq.password=admin
+      guest.password=admin
+    - run mnv clean install
+      in the docker desktop check if a image for activemq was created. E.G.: xoriant-docker.eu-central-1.artifactory.wexapps.com/rmohr/activemq:5.15.9
+    - Create a Container for the image
+    - open ports 8161 and 61616 for tcp
+    - start Container
+
+  - Example on how to send messages to ActiveMQ can be found on repo gf-ifcs-ms-loadcard-xml-transform and check file:
+    - src/main/resources/jms-config.xml(to run local change "tcp://ifcs-messaging-activemq:61616" to tcp://localhost:61616 )
+    - src/main/resources/applicationContext.xml
+    - src/main/java/com/wexinc/gfifcsmsloadcardtransform/GfIfcsMsLoadCardTransformApplication.java
+    - LoadCardTransformController.sendMessage where we have  jmsTemplate.send.
+      On this example we are sending a message to a message queue called "loadFileQueue"
+     - If you like to see how we can consume a message check the src/main/java/com/wexinc/gfifcsmsloadcardtransform/listener/MessageListener.java

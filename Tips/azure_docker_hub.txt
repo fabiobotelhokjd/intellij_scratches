@@ -1,0 +1,29 @@
+DEV
+ 
+-Name: acrcwsdev001.azurecr.io
+ 
+-user: acrcwsdev001
+ 
+Password: lLSfImsLZ0V0Z6K6hn0VmH97/Q6LlNod
+ 
+Password: NJr/w/ZwYK5NtZkqsRxovuf0yh8DeteH
+ 
+QAT
+ 
+- Name: acrcswqat001.azurecr.io
+ 
+Password: R90HlnCXun8+cytGJ9JEIjPU9Xh757Sm
+ 
+Password: Lq5E3Tnlm0j2gO/hD1Bx5QBdIMbSXV3g
+ 
+PRD
+ 
+- Name: acrcswprd001.azurecr.io
+ 
+Password: peuwmX+FcYEc7KdslbDtkHLHSdyuyVbt
+ 
+Password: /KeKgLW98mmIuPv9xw5doFydMbvJg/XM
+ 
+DEV
+docker login -u acrcwsdev001 -p lLSfImsLZ0V0Z6K6hn0VmH97/Q6LlNod acrcwsdev001.azurecr.io
+ 

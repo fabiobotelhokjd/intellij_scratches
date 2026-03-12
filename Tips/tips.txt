@@ -1,0 +1,264 @@
+-- check java installed into mac
+/usr/libexec/java_home -V
+-- importing certificate
+keytool -importcert -keystore /Users/w431951/Library/Java/JavaVirtualMachines/corretto-1.8.0_392/Contents/Home/jre/lib/security/cacerts -storepass changeit -alias ArtifactoryCloud -file ~/Documents/euartifactorywexinc.jfrog.io.cer
+-- list certificates
+keytool -list -keystore /Users/w431951/Library/Java/JavaVirtualMachines/corretto-1.8.0_392/Contents/Home/jre/lib/security/cacerts
+-----
+ssh-add ~/.ssh/id_rsa &>/dev/null
+
+-----mac udp iddue
+sudo route add -net 230.0.0.0/5 192.168.1.0
+sudo route add -net 224.0.0.0/5 127.0.0.1
+----- PTO email signature notification
+
+Advance Leave Notification: December 21, 2020 – January 2, 2021
+------------------------------------
+sumologic search: optInFlag\\\":\\\"N" -> \"optInFlag\":\"N\"
+
+aec1[app_name]utilsl000u - 10.97.49.114
+.bashrc and .bash_profiles
+add -> umask 002
+run . .bash_profiles
+
+2. For any files that you copy using your WID from some path (either a local path or any of the mounted EFS directory) to another EFS path, kindly ensure that you are completed the step (1) as mentioned above and if you are using the same terminal, please have the command ". ~/.bash_profile" executed there, else fire up a new terminal to have your bash_profile preset for the new session with your umask configuration. After then, please use the following Unix copy command which has a flag set to ensure that the copy operation sets the right permission for the target file.
+cp --no-preserve=mode <source> <target>
+
+------------------------------
+kubernets: ssh 10.97.37.15
+
+kubernetes: 10.98.121.10
+
+
+C:\Users\W431951\AppData\Local\Packages\46932SUSE.openSUSE-Leap-15-1_022rs5jcyhyac\LocalState\rootfs\home\W431951
+
+watch free -h
+java -XX:+PrintFlagsFinal -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
+
+postfix for dev: aec1pstfxH000D.[app_name]dev.ec1.wexglobal.com
+
+sending email:
+echo "Message Body Here" | mailx -s "WFE UAT" -a server.log.2021-10-20 fabio.botelho@wexinc.com
+
+curl  --url 'smtp://10.97.177.93:25' --mail-from 'fabio.botelho@wexinc.com' --mail-rcpt 'fabio.botelho@wexinc.com' --upload-file s/data/[app_name]logs/[app_name]-server/[app_name]-server-1/server.log.2022-03-17
+curl  --url 'smtp://aec1pstfxh001p.fleeteuropeprod.ec1.wexglobal.com' --mail-from 'fabio.botelho@wexinc.com' --mail-rcpt 'jonah.grauman@wexinc.com' --upload-file test.txt
+curl  --url 'smtp://aec1pstfxh000u.fleetomvuat.ec1.wexglobal.com' --mail-from 'fabio.botelho@wexinc.com' --mail-rcpt 'fabio.botelho@wexinc.com' --upload-file test.txt
+curl  --url 'smtp://aec1pstfxh000d.fleeteuropedev.ec1.wexglobal.com' --mail-from 'fabio.botelho@wexinc.com' --mail-rcpt 'fabio.botelho@wexinc.com' --upload-file server.log
+# tem que criar arquivo mail.txt
+OMV UAT
+curl  --url 'smtp://aec1pstfxh000u.fleetomvuat.ec1.wexglobal.com' --mail-from 'fabio.botelho@wexinc.com' --mail-rcpt 'fabio.botelho@wexinc.com' --upload-file test.txt
+EG
+curl  --url 'smtp://aec1pstfxh000u.fleeteuropeuat.ec1.wexglobal.com' --mail-from 'nobody@wexinc.com' --mail-rcpt 'fabio.botelho@wexinc.com' --upload-file test.txt
+
+ZEN QA
+curl  --url 'smtp://emea1.mta-dev.wexapps.com:25130' --mail-from 'fabio.botelho@wexinc.com' --mail-rcpt 'fabio.botelho@wexinc.com' --upload-file test.txt
+
+
+https://appstream2.ap-southeast-1.aws.amazon.com/userpools#/signin?ref=7l4tY4Nyxw
+------------
+rsync -avz  10.97.123.235:/data/bamboo/middleware12c /mnt/bamboo-ebs
+
+chown bamboo:bamboo -R middleware12c
+vim /mnt/bamboo-ebs/bin/customise-extras.sh
+ln -sv /mnt/bamboo-ebs/middleware12c /data/bamboo/middleware12c
+
+DEBIAN_FRONTEND='noninteractive' apt-get -y -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' update
+
+Converstion:
+172 = 10
+25 = 32
+28 = 4 or 10 = 2
+174 = 174
+
+Example:
+AKL-WEX-129: 172.25.28.174. NAT address for this IP will be 10.32.4.174
+---------------------
+run in the background: add to the end ----> &> /dev/null < /dev/null &
+&> /dev/null < /dev/null &
+-- to a file and background: &> output.log &
+-------------
+convert something_camel to somethingCamel
+find what: _([a-z]+)
+replace with: \u\1
+--------------
+du -h / | grep '[0-9\.]\+G'
+du -sh
+--------------deleting old files
+find ./my_dir -mtime +10 -type f -delete
+-----------------------
+-- find Files
+find / -iname 'book1*'
+nc -z  host port or curl -v telnet://10.128.182.200:1500
+
+stat -c "%a %n" /path/of/file
+ /path/of/file on mac -> stat -f "%Lp"
+-------------
+mac and save .ssh phrasekey -> ssh-add ~/.ssh/id_rsa &>/dev/null
+--------
+sed -i "s/\/i1\/data\/bamboo\/AEC1bamslv000D\/xml-data\/build-dir\/NS-OR0-JOB1/\/app\/server\/node\/AWS_APAC_WAVE0_DUAL/g" /.
+----------------
+grep -rnw '~/rpmbuild' -e '[app_name]Liquibase-jar-with-dependencies.jar'
+tr ' ' '\n' < /app/server/AWS_APAC_PROD/standalone/log/server.log.1 | grep PARSER_ERROR  | wc -l
+-r or -R is recursive,
+-n is line number, and
+-w stands for match the whole word.
+-l (lower-case L) can be added to just give the file name of matching files.
+---------------
+To compress a tar file:
+tar -czvf foldername.tar.gz foldername
+
+To Uncompress a tar file:
+tar -xzvf foldername.tar.gz
+
+----- to do the backup we need create an archive then remove all files from current [app_name]docs running the followed commands:
+- sudo rsync -avog -f"+ */" -f"- *" "/data/[app_name]docs/" "/data/[app_name]docs_[date time]/" &> /dev/null < /dev/null & ---> just folder structure
+- sudo rsync -avog "/data/[app_name]docs/" "/data/[app_name]docs_20250220/" > backup_20241121.txt 2>&1 & ---> all folders and Files
+- sudo find /data/[app_name]docs/ -type f -delete > cleanup_20241121.txt 2>&1 &
+- sudo find /data/tmp/ -name="*.pdf" -delete > cleanup_20241127.txt 2>&1 &
+- sudo find /data/[app_name]docs/OMV/interface_input_files/ -depth -type d -links 2
+-- number of files
+-- find  -maxdepth 1 -name "*.pdf" -type f | wc -l
+-- cd /data/icptrans/icp/sftp/out/icp/001/customerinvoice/2024/11/25/[app_name]/214510701
+-- to get first: find . -maxdepth 1 -name "*.pdf" -type f -printf "%T@ %p\n" | sort -n | head -n 1 | cut -d' ' -f2- | xargs ls -lha
+-- to get last : find . -maxdepth 1 -name "*.pdf" -type f -printf "%T@ %p\n" | sort -n | tail -n 1 | cut -d' ' -f2- | xargs ls -lha
+-- export sorted by name: find . -maxdepth 1 -type f -name "*.pdf" -exec ls -1 {} + | sort > /tmp/result_all_pdf.txt
+-- -newermt "2025-01-16" -name "*IL.*"
+------------------------------------------------------------------------
+rsync -avog --exclude 'Archive' --exclude 'Failed' --exclude 'Successful' --exclude 'Customer_Reports' -f"+ */" -f"- *" "/data/[app_name]docs_archive_05042023/" "/data/[app_name]docs"
+rsync -avog --exclude={'Archive','Failed','Successful','Customer_Reports'} -f"+ */" -f"- *" "/data/[app_name]docs_archive_05042023/" "/data/[app_name]docs"
+---------------
+grep -rnw '.' -e 'Dis01'
+grep -rnw '/data/[app_name]logs/AWS_WES_UAT' -e 'AS location_component_type_oid'
+to get file name only: grep -rwl '.' -e 'getXml('
+to get file name only: grep -rwl --include='angular.json' '/data/[app_name]logs/[app_name]-server/' -e 'ApplicationFatalExceptionNoRollBack: Fees Period'
+-- check number of files: find ./ -type f | wc -l
+- grep -lir 'PRICING_COMPONENT_VALUE_CANNOT_BE_FOUND' --include="[app_name]-ms-pricing-batch-2023-12-12*"
+-- copy line from one file into another one
+sed -n '601686,601688p' test.txt > s-email.txt
+--
+-- to vi show line number type : then   set number
+
+grep -r --include=*.* "new_transaction_oid>357446475"  /data/[app_name]logs/[app_name]-server/
+
+find /data/[app_name]docs/STAGE/interface_output_files -type d -name "Archive" -print
+
+find /data/[app_name]docs/STAGE/interface_output_files -name *.zip -mtime -25 -execdir mv {} {}_20190724 ';'
+find /data/[app_name]docs/STAGE/interface_output_files -type d -name "Archive" -execdir mv {} {}_20190724 ';'
+
+find /app/data/[app_name]logs/ -mtime -7 -exec rm -rf {} \;
+find  /app/data/[app_name]logs/**/*.log4j.* -mtime -5 -exec rm -rf {} \;
+find  /i1/data/bamboo/apache-maven-m2/repository/nz/co/fal/ -mtime -5 -exec ls -lha {} \;
+find  /opt/atlassian-bamboo-agent-6.6.0 -name init.properties -exec ls -lha {} \;
+----
+deleting multiple Files
+sudo find /data/tmp -type f -name '*.pdf.txt' -mtime +10 -print0 | xargs -0 rm
+
+
+---------------
+watch -n5 "ls -lrt /app/server/AWS_ZEN_E2E/standalone/deployments/ | tail"
+----------------
+sudo yum remove nodejs: Uninstall Node.js 6.x (I don't know if this was necessary or not)
+curl --silent --location https://rpm.nodesource.com/setup_11.x | sudo bash -
+sudo yum clean all
+sudo yum --disablerepo='wexrepo' makecache: Regenerate metadata cache (this wasn't in the docs, but yum kept trying to install Node.jx 6.x, unsuccessfully, until I issued these last two commands)
+sudo yum --disablerepo='wexrepo' install nodejs: Install Node.js 8.x
+usermod -a -G editorial olivia
+
+
+sudo yum install -y nodejs
+-----------------
+Mobile@2016
+
+Bpme@2016
+-------------agents
+export LD_LIBRARY_PATH=/lib64:$LD_LIBRARY_PATH
+sudo yum clean all
+sudo yum --disablerepo='wexrepo' makecache
+yum install xorg-x11-fonts-100dpi xorg-x11-fonts-Type1 xorg-x11-fonts-ISO8859-1-75dpi xorg-x11-fonts-ISO8859-1-100dpi  xorg-x11-font-utils xorg-x11-fonts-75dpi xorg-x11-fonts-base xorg-x11-fonts-misc
+yum --disablerepo='*' --enablerepo='Artifactory' install BAMBOO_WILDFLY
+sudo /opt/admin/scripts/wildfly start BAMBOO_WILDFLY
+
+curl https://raw.githubusercontent.com/creationix/nvm/v0.13.1/install.sh | bash
+source ~/.bash_profile
+nvm list-remote
+nvm install v11.3.0
+node --version
+npm --version
+
+C:\ProgramData\WEX\CPALaunch
+
+keytool -import -alias twikey -keystore "%JAVA_HOME%/jre/lib/security/cacerts" -file twikey.cer
+keytool -delete -alias twikey1 -keystore "%JAVA_HOME%/jre/lib/security/cacerts"
+
+
+nginx:
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /c/Program\ Files/nginx-1.18.0/nginx-1.18.0/certs/nginx-selfsigned.key -out /c/Program\ Files/nginx-1.18.0/nginx-1.18.0/certs/nginx-selfsigned.crt
+
+checking open ports:
+sudo lsof -i -P -n | grep LISTEN
+
+regex to find text between:
+(?=INSERT INTO [app_name]UNIT.LIQUIBASE_CHANGE_LOG).*
+
+lipar o rpmbuilder
+du -sh *
+echo "" > /var/spool/mail/root
+
+
+--- find and replace with regex
+--TIMESTAMP '(.*?)'
+--TO_TIMESTAMP('$1','YYYY-MM-DD HH24:MI:SS.FF6')
+
+-- replave & by ' || chr(38) || '
+-- colocar linhas no vi
+:set number
+
+--
+vi replace all strings
+:%s/from/to/g
+
+-- splunk filter
+index="wfl_devops_logs" cluster_name="omv-uat2*" pod="[app_name]-server*"
+
+
+rsync -e ssh -avzO --recursive --stats --no-perms --no-times --no-A --no-X --no-o --no-g -O --delete Artifactory.repo 10.97.21.198:/etc/yum.repos.d/.
+
+number of occurrencies in the file using VI - count
+%s/[string to search here without []]/&/gn
+:%s/text_to_count//gn
+
+-- copying files for a date
+find /data/docXML -type f -newermt "2025-01-16" ! -newermt "2025-01-16" -exec cp {} /tmp/20250117_docxml \;
+
+-- extract DBeaver password, the DB url is in the data-sources.json file under .dbeaver folder
+unzip the bbp file and execute command where the file is:
+openssl aes-128-cbc -d -K babb4a9f774ab853c96c2d653dfe544a -iv 00000000000000000000000000000000 -in "credentials-config.json"
+
+----Use keytool from that JDK and import into its cacerts:
+/c/Users/U624415/.jdks/corretto-25.0.2/bin/keytool \
+  -importcert \
+  -alias nexus-avangrid \
+  -file /mnt/c/Users/U624415/Documents/Dev/nexus.avangrid.net.crt \
+  -keystore $JAVA_HOME/lib/security/cacerts \
+  -storepass changeit
+  
+-- converting to base64-encode
+@'
+import base64
+values = {
+    'jdbcUrl': 'jdbc:postgresql://psql-csw1-qat.postgres.database.azure.com:5432/csw',
+    'username': 'csw_usr',
+    'password': 'Fq9pHRiyBFTxBl9ZJoq%z!WKixOddV6s',
+}
+for k, v in values.items():
+    print(f"{k}={base64.b64encode(v.encode('utf-8')).decode('ascii')}")
+'@ | python -  
+
+---maven lifecycle  
+validate 
+ compile 
+ test 
+ package 
+ verify 
+ install 
+ deploy  

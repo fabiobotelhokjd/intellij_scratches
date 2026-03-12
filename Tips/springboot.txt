@@ -1,0 +1,5 @@
+For auto generation of openapi doc
+
+Dependencies:
+	springdoc-openapi-starter-webmvc-ap
+	springdoc-openapi-maven-plugin

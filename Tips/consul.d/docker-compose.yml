@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  dev-consul-server:
+   image: consul:1.15.4
+   container_name: fb-mac-consul-server
+   restart: unless-stopped
+   ports:
+     - "8300:8300"
+     - "8400:8400"
+     - "8500:8500"
+     - "8600:8600"
+     - "8600:8600/udp"
+   volumes:
+     - /Users/w431951/JavaDev/consul.d/:/etc/consul.d/:rw
+   environment:
+     - CONSUL_BOOTSTRAP_EXPECT=3
+     - CONSUL_CLIENT_LAN_ADDRESS=0.0.0.0
+     - CONSUL_DISABLE_KEYRING_FILE=true
+     - CONSUL_RETRY_JOIN=dev
+   command: [ "consul", "agent", "-bootstrap-expect=1", "-server", "-data-dir=/consul/data", "-config-dir=/etc/consul.d", "-bind={{ GetInterfaceIP \"eth0\" }}", "-client=0.0.0.0", "-ui"]

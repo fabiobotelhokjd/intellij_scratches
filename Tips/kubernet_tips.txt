@@ -1,0 +1,177 @@
+-- service LB: <service-name>.<namespace>.svc.cluster.local
+
+---- set up multiple kubetcl contexts on my laptop
+-- checking all context: 
+kubectl config get-contexts
+-- set default context: 
+kubectl config use-context <context-name>
+-- checking current default context:
+ kubectl config current-context
+
+-- setting default namespace
+kubectl config set-context --current --namespace=<your-namespace> 
+ 
+kubectl --context aks-customer-prd-001 -n liferay logs -l app.kubernetes.io/instance=liferay --max-log-requests=15 -f
+
+--logs for all podes for an app
+kubectl logs -n osl -l app=[check app name in the description of the pod] --previous --tail=200
+E.G.: kubectl logs -n osl -l app=mimo-lookup --previous --tail=200
+-- watching pods
+kubectl get pods -n [namespace] -l app=[check app name in the description of the pod] -w
+E.G.:kubectl get pods -n osl -l app=osl-data -w
+-- connect to remote cluster
+-- for ui issues
+$ kubectl --context aks-microservice-prd get namespaces
+E.G.:  kubectl --context aks-microservice-prd -n osl logs -f --tail=10 [pod name]
+
+$ kubectl --context aks-microservice-prd -n osl get pods | grep "^agr-emailer"
+
+--- rollout in case need safe delete pods. rollout furst create new pods than delete old ones
+kubectl --context aks-microservice-prd -n osl rollout restart deployments/PODNAME
+
+---------- to avoid need to have the config file in the kubectl command line
+on linux need first execute first time we unset: 
+-- change .bash_profile adding:
+KUBECONFIG="$(ls -dm ~/.kubeconfig/*.conf | tr -d '\n' | sed 's/,/:/g')"
+export KUBECONFIG
+
+--
+kubectl config view --merge --flatten > ~/.kube/config
+unset KUBECONFIG
+
+-- list
+aws secretsmanager list-secrets --filter Key="name",Values="environments_secrets_passphrase" | grep ARN | awk '{print $2}' | tr -d '\",' | aws secretsmanager get-secret-value --secret-id `xargs` | grep SecretString | awk '{print $2}' | tr -d '"{}\\' | tr ',' '\n'
+
+-- delete hpa
+kubectl delete hpa ifcs-server
+--replicas: 4 -> instead of 2
+kubectl edit sts ifcs-server
+
+geting consul URL: kubectl get ing -n consul
+
+kubectl get pods -n [namespace]
+setting current namespace: kubens [namespace]
+
+--- list all pods
+kubectl get pods --all-namespaces -o jsonpath="{.items[*].spec.containers[*].image}"
+
+-- get pod deployment specific configuration in the deployment.yaml
+kubectl get deployment nyseg -n mfe -o jsonpath='{.spec.template.spec.containers[0].image}'
+-- getting the deployment yml into a  file
+kubectl get deployment nyseg -n mfe -o yaml > nyseg-deployment-stg.yml
+
+-----------------------------------------------
+ssh -i ~/.ssh/wf-euro-bstn.pem ec2-user@10.97.43.219
+-----------------------------------------------
+kubectl cp [namespace]/[pod_name]:[source_path] [destination_path]
+-----------------------------------------------
+
+-----to delete job
+k delete job [job_name]
+----- to delete pod
+k delete pod [pod_name]
+
+Command
+to encrypt : openssl enc -aes-256-cbc -salt -in secret-keys.yaml -out secret-vars.yaml -md md5
+to decrypt : openssl enc -aes-256-cbc -d -in secret-vars.yaml -md md5 -out secret-keys.yaml
+
+--------------------prune docker when we have space issued
+docker image prune -a --filter "until=$(date +'%Y-%m-%dT%H:%M:%S' --date='-15 days')"
+
+-- verificar o status do k8s
+watch 'kubectl get pod [pod_name] -o=jsonpath='{.status.conditions}' | jq .'
+-- get statefulsets
+kubectl get statefulsets
+-- edit
+kubectl edit hpa [service_name]
+kubectl edit statefulset [service_name]
+-- create file kubectl get statefulsets [service_name] -o yaml >> statefulset.yaml
+-- apply kubectl apply -f statefulset.yaml
+
+-- check ingress
+kubectl describe ingress [service_name]
+-- verificar o Dockerfile
+kubectl describe pod [pod_name] -n bp-prod | grep Image:
+docker inspect <image_name>
+-- rem oving pod from deployment
+delete statefulset for [service_name]
+
+java -XX:+PrintFlagsFinal  -version | grep -iE 'HeapSize|PermSize|ThreadStackSize|maxheapsize|maxram'
+
+ jcmd [process id] VM.flags
+ jcmd [process id] GC.heap_info
+
+-- check HAZELCAST
+curl -v http://localhost:5701/hazelcast/rest/cluster
+curl -v http://localhost:5701/hazelcast/health/node-state
+curl -v http://localhost:5701/hazelcast/health/ready
+
+kubens consul
+kubectl get ingress
+
+-- checking k8s hosts for ms
+kubectl get services --all-namespaces -o jsonpath='{range .items[*]}{.metadata.name}{"."}{.metadata.namespace}{".svc.cluster.local\n"}{end}'
+
+memory usage
+execute:
+- top
+- ps aux --sort=-%mem | head
+
+-- checking JFrog
+kubectl describe sts -A | grep xoriant-docker.eu-central-1
+
+-- delete service from clusteredYou will need to delete the statefulset or deployment from the cluster,
+`kubectl delete sts [service_name]`
+
+kubectl get events --namespace=[service_name] --sort-by='.metadata.creationTimestamp'
+kubectl logs  StatefulSet/[service_name] --namespace=[service_name]
+
+-- delete all pods for namespace
+kubectl delete pods --all -n [namespace]
+-- for all pods from namespace
+kubectl delete pods --all
+kubectl delete pods --all -n <namespace>
+-- when build failure because oracle port already use
+login to bp-qa jenkins slave -> run command " docker ps " and then docker stop <container-id>
+
+---- convert to base64
+-- on Windows
+from string to base64:
+[System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("saliferayqat001"))
+[System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="))
+from base64 to string:
+[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("c2FsaWZlcmF5ZGV2MDAxCg=="))
+-- on Linux
+$ echo -n "saliferayqat001" | base64
+
+-- running services local
+execute:  
+kubectl run -n osl tmp-curl --rm -it --image=curlimages/curl --restart=Never -- \
+  curl -s http://OSL-CONFIG/energy-service/qat,nyseg
+different tab execute:
+  kubectl -n osl port-forward svc/osl-config 8888:80
+-- add to application spring boot env variables: 
+CONFIG_URI=http://stg.osl.avangrid.net/biz/oslconfig/v1/;SPRING_CLOUD_CONFIG_URI=http://localhost:8888;SPRING_CLOUD_CONFIG_NAME=common,energy-service;SPRING_CLOUD_CONFIG_LABEL=latest;SPRING_PROFILES_ACTIVE=qat,nyseg
+-- check pod logs when crash initializing
+kubectl logs -n [namespace] [pod name] -c spring-boot --previous
+E.G.: kubectl logs -n osl load-shed-data-576f475d8c-kwrg7 -c spring-boot --previous
+
+-- list all pods from context into a file
+kubectl --context aks-microservice-stg get pods -A -o custom-columns=APP:.metadata.labels.app --no-headers \
+| grep -v '^<none>$' | sort > /mnt/c/Users/U624415/AppData/Roaming/JetBrains/IntelliJIdea2025.3/scratches/temp_files/podStg.txt
+
+--------------------Node labes----------------
+-- checking node labes
+kubectl get nodes --show-labels
+-- filtering agentpool
+kubectl get nodes -o custom-columns="NAME:.metadata.name,AGENTPOOL:.metadata.labels.agentpool"
+-- adding label to docker desktop node
+kubectl label node desktop-worker3 agentpool=txn
+-- overwrite flag to replace its value.
+kubectl label nodes <node-name> <label-key>=<new-value> --overwrite
+  
+---Run this command to add a new label opco=ibtxn to your mfe nodes:
+kubectl label nodes -l agentpool=mfe agentpool=ibtxn
+
+-- checking lates events for all services
+kubectl get events --sort-by='.lastTimestamp' -o custom-columns="LAST_SEEN:.lastTimestamp,NAME:.involvedObject.name,MESSAGE:.message"

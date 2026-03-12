@@ -1,0 +1,89 @@
+Acronyms and Shorthands
+ 
+Day to Day:
+Opco - Operating Company
+MIMO - Move in Move out
+STL - Senior Tech Lead
+POC - Proof of Concept, Point of Contact
+ 
+Tech Related:
+NPM - Node Package Manager
+VPN - Virtual Private Network
+MFA - Multi Factor Authentication
+NG - Angular
+OKTA - American Identity and Access Management
+QAT - Quality Assurance Testing
+DEV - Development environment
+PROD - Production
+ 
+Company Related:
+RG&E - Rochester Gas and Electric
+NYSEG - New York State Electric and Gas
+BGC - Berkshire Gas Company (Massachusetts)
+CMP - Central Main Power
+UI - United Illuminating
+SCG - Souther Connecticut Gas
+CNG - Connecticut Natural Gas
+UIL- all Connect(UI/BGC/SCG)
+ 
+Document Related:
+SAT - Security Acceptance Test
+SAD - Solution Architecture Document
+ADD - Application Design Document
+BRD - Business Requirements Document
+BIA - Business Impact Analysis
+IRD - Incident Response Document
+ 
+Core IAM Concepts:
+IAM - Identity and Access Management
+IdM - Identity Management
+AM - Access Management
+PAM - Privileged Access Management
+IGA - Identity Governance and Administration
+CIAM - Customer Identity and Access Management
+ 
+Authentication & Authorization:
+MFA - Multi-Factor Authentication
+2FA - Two-Factor Authentication
+SSO - Single Sign-On
+SFA - Single Factor Authentication
+RBAC - Role-Based Access Control
+ABAC - Attribute-Based Access Control
+DAC - Discretionary Access Control
+MAC - Mandatory Access Control
+PBAC - Policy-Based Access Control
+ 
+Standards & Protocols:
+SAML - Security Assertion Markup Language
+OAuth - Open Authorization
+OIDC - OpenID Connect
+SCIM - System for Cross-domain Identity Management
+LDAP - Lightweight Directory Access Protocol
+AD - Active Directory
+RADIUS - Remote Authentication Dial-In User Service
+TACACS+ - Terminal Access Controller Access-Control System Plus
+Kerberos - Network authentication protocol
+JWT - JSON Web Token
+FIDO - Fast Identity Online
+ 
+Governance & Compliance:
+SOD - Segregation of Duties
+SoR - System of Record
+JML - Joiner, Mover, Leaver
+UAR - User Access Review
+AR - Access Request
+AC - Access Certification
+PoLP - Principle of Least Privilege
+ZTA - Zero Trust Architecture
+ 
+Technical Components:
+IDP - Identity Provider
+SP - Service Provider
+RP - Relying Party
+API - Application Programming Interface
+REST - Representational State Transfer
+SOAP - Simple Object Access Protocol
+PKI - Public Key Infrastructure
+CA - Certificate Authority
+OTP - One-Time Password
+TOTP - Time-based One-Time Password

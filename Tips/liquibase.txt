@@ -1,0 +1,2 @@
+from folder where we checkout run:
+liquibase --changeLogFile=src/main/liquibase/changelog.xml --url=jdbc:oracle:thin:@[URL]:[PORT]:[CNAME] --username=[TBD] --=[TBD] --driver=oracle.jdbc.OracleDriver --logLevel=debug --driver=oracle.jdbc.driver.OracleDriver --classpath=target/resources/binaries/opt/liquibase/lib/ojdbc8-19.3.0.0.jar update

@@ -1,0 +1,83 @@
+------------------------------------------------------------------------------------------------------------------
+1. Identify Top Namespaces by Memory Usage
+let startDateTime = ago(24h);
+KubePodInventory
+| where TimeGenerated >= startDateTime
+| where ClusterName == "aks-customer-prd-001"
+| distinct ContainerID, Namespace
+| join kind=inner (
+    Perf
+    | where TimeGenerated >= startDateTime
+    | where ObjectName == "K8SContainer" and CounterName == "memoryWorkingSetBytes"
+    | summarize AvgMemoryUsageBytes = avg(CounterValue) by ContainerID
+) on ContainerID
+| summarize TotalMemoryGB = sum(AvgMemoryUsageBytes) / 1024 / 1024 / 1024 by Namespace
+| sort by TotalMemoryGB desc
+----
+// Run in Logs (Log Analytics Workspace)
+let startDateTime = ago(18h);
+Perf
+| where TimeGenerated >= startDateTime
+| where ObjectName == "K8SContainer" and CounterName == "memoryWorkingSetBytes"
+// Parse PodUid from InstanceName (format: .../PODUID/CONTAINERNAME)
+| extend PodUid = tostring(split(InstanceName, "/", 9)[0])
+| summarize AvgMemoryUsageBytes = avg(CounterValue) by PodUid
+| join kind=inner (
+    KubePodInventory
+    | where TimeGenerated >= startDateTime
+    | where ClusterName == "aks-customer-prd-001"
+    | summarize arg_max(TimeGenerated, *) by PodUid
+) on PodUid
+| summarize TotalMemoryGB = sum(AvgMemoryUsageBytes) / 1024 / 1024 / 1024 by Namespace, ControllerName
+| sort by TotalMemoryGB desc
+
+------------------------------------------------------------------------------------------------------------------
+
+2. Identify Specific Deployments/Controllers
+let startDateTime = ago(24h);
+KubePodInventory
+| where TimeGenerated >= startDateTime
+| where ClusterName == "aks-customer-prd-001"
+| extend DeploymentName = ControllerName
+| summarize AvgMemoryBytes = avg(toreal(parse_json(tostring(array_concat(parse_json('[]'), pack('v', 0)))))) // Placeholder for join logic
+| join kind=inner (
+    Perf
+    | where TimeGenerated >= startDateTime
+    | where ObjectName == "K8SContainer" and CounterName == "memoryWorkingSetBytes"
+    | summarize LastMemoryUsageBytes = arg_max(TimeGenerated, CounterValue) by ContainerID
+) on ContainerID
+| summarize MemoryUsageGB = sum(LastMemoryUsageBytes) / 1024 / 1024 / 1024 by Namespace, DeploymentName
+| sort by MemoryUsageGB desc
+------------------------------------------------------------------------------------------------------------------
+
+3. Check Memory Usage vs. Configured Limits
+Perf
+| where ObjectName == "K8SContainer" and CounterName == "memoryWorkingSetBytes"
+| summarize MaxWorkingSet = max(CounterValue) by ContainerID
+| join kind=inner (
+    KubePodInventory
+    | where ClusterName == "aks-customer-prd-001"
+    | project ContainerID, Name, Namespace, MemoryLimitBytes = ContainerResourceLimit
+) on ContainerID
+| extend UsagePercentage = (MaxWorkingSet / todecimal(MemoryLimitBytes)) * 100
+| where UsagePercentage > 80
+| project Namespace, Name, UsagePercentage, MaxWorkingSet, MemoryLimitBytes
+| sort by UsagePercentage desc
+
+------------------------------------------------------------------------------------------------------------------
+Revised Memory Spike Query (Log Analytics)
+// Run this in Logs (Log Analytics), NOT Resource Graph
+let startDateTime = ago(24h);
+KubePodInventory
+| where TimeGenerated >= startDateTime
+| where ClusterName == "aks-customer-prd-001"
+| distinct ContainerID, Namespace, ControllerName
+| join kind=inner (
+    Perf
+    | where TimeGenerated >= startDateTime
+    | where ObjectName == "K8SContainer" and CounterName == "memoryWorkingSetBytes"
+    | summarize AvgMemoryUsageBytes = avg(CounterValue) by ContainerID
+) on ContainerID
+| summarize TotalMemoryGB = sum(AvgMemoryUsageBytes) / 1024 / 1024 / 1024 by Namespace, ControllerName
+| sort by TotalMemoryGB desc
+

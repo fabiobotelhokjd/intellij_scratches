@@ -1,0 +1,42 @@
+
+
+--------------------------------commit messages template----------------------------------------------------------
+[type]: [commit message]
+
+Type	Purpose
+feat	New feature
+fix	Bug fix
+docs	Documentation only changes
+style	Code style changes (formatting, etc.)
+refactor	Code restructuring without behavior change
+perf	Performance improvements
+test	Adding or fixing tests
+build	Build system or dependency changes
+chore	Miscellaneous tasks (e.g., .gitignore)
+ops	
+------------------------------------------------------------------------------------------
+-- delete branch
+git push -d origin <old-name>
+E.G.: git push -d origin UPG-STG
+-- rename remote branch
+git checkout <old-name>
+git branch -m <old-name> <new-name>
+git push origin :<old-name> <new-name>
+git push origin -u <new-name>
+E.G.:
+git checkout UPG-STAGE-COMMON
+git branch -m UPG-STAGE-COMMON UPG-STG-COMMON
+git push origin :UPG-STAGE-COMMON UPG-STG-COMMON
+git push origin -u UPG-STG-COMMON
+
+--- list all repositories starting with app-mfe
+curl -k -s -H "Authorization: token <token>" "https://github.avangrid.net/api/v3/search/repositories?q=app-mfe+in:name+org:WebTeam&per_page=1000" | jq -r '.items[].name'
+
+-- recover commit after reset to a previous commit
+git reflog
+The output will look something like this, with the most recent actions at the top:
+54ad9f0 HEAD@{0}: reset: moving to HEAD~1
+b921d4c HEAD@{1}: commit: Fix login bug 
+a1b2c3d HEAD@{2}: commit: Initial commit
+In this example, b921d4c is the commit that was "lost" after the reset.
+git reset --hard b921d4c
