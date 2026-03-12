@@ -1,0 +1,156 @@
+### hello world
+GET http://kubernetes.docker.internal/users?page=1
+Accept: application/json
+
+<> 2026-02-23T130952.503.html
+<> 2026-02-23T130905.200.json
+<> 2026-02-23T130301.200.json
+
+###
+GET https://lstg.soconngas.com/o/oauth2/token
+Accept: application/json
+###
+GET https://lstg.cngcorp.com/o/oauth2/token
+Accept: application/json
+###
+POST https://lstg.berkshiregas.com/o/oauth2/token
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic  aWQtOWNhYzFjNjYtOTAyYy0zMDJhLTExZGEtYjVjYThkMWUyNDpzZWNyZXQtNGI3NTJmNjItMmYyMy0yNDNkLWI5ODgtZjI3MTFhYWQzNTY=
+
+grant_type=client_credentials
+
+<> 2026-01-23T121251.401.json
+<> 2026-01-23T120500.401.json
+<> 2026-01-23T120235.401.json
+
+###
+
+
+### lqat
+POST https://lqat.berkshiregas.com/o/oauth2/token
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic  aWQtZGFjMmFmNmEtZDlmMS00ODJhLWRkZTUtMGI3OTEwMTc6c2VjcmV0LWVkMTE5YmY5LTJhYTMtNTk0ZS01MTQwLTUxY2Y5OGNhMTFj
+
+grant_type=client_credentials
+
+<> 2026-01-23T121055.401.json
+
+### medical
+POST https://ssos.medical.avangrid.com/o/oauth2/authorize
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic aWQtZGFjMmFmNmEtZDlmMS00ODJhLWRkZTUtMGI3OTEwMTc6c2VjcmV0LWVkMTE5YmY5LTJhYTMtNTk0ZS01MTQwLTUxY2Y5OGNhMTFj
+
+grant_type=client_credentials
+
+### liferay
+POST https://ssos.berkshiregas.com/o/oauth2/token
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic aWQtYjZiMjU2NTQtMjEwOS0xNjA2LTk5YWEtZjY0YmU4NGE2MmU6c2VjcmV0LWQ4ZTM4YjNiLWE2NmQtY2M3Ny0wYTAxLWY2NGJlODRhNjJl
+
+grant_type=client_credentials
+<> 2026-01-29T114544.400.json
+<> 2026-01-29T114228.401.json
+<> 2026-01-29T114216.401.json
+<> 2026-01-29T114143.401.json
+
+### get propertie QAT
+GET http://qat.osl1.avangrid.net/biz/txn-config/v1/api/properties/common/qat/latest
+Content-Type: application/x-www-form-urlencoded
+
+<> 2026-03-04T133930.200.json
+<> 2026-03-04T131343.200.json
+<> 2026-03-04T131340.200.json
+<> 2026-03-04T131243.200.json
+<> 2026-03-01T172632.200.json
+<> 2026-02-27T123053.200.json
+<> 2026-02-26T152900.200.json
+<> 2026-02-26T152846.200.json
+
+### get propertie DEV
+GET http://dev.osl1.avangrid.net/biz/txn-config/v1/api/properties/common/dev/latest
+Content-Type: application/x-www-form-urlencoded
+
+<> 2026-02-19T123143.200.json
+<> 2026-02-18T101241.200.json
+<> 2026-02-18T100959.200.json
+<> 2026-02-18T094916.200.json
+<> 2026-02-17T125321.200.json
+<> 2026-02-09T183854.200.json
+<> 2026-02-09T183450.200.json
+<> 2026-02-09T183437.200.json
+<> 2026-02-09T183213.200.json
+<> 2026-02-09T182314.200.json
+<> 2026-02-09T182051.200.json
+<> 2026-02-09T182024.200.json
+<> 2026-02-09T181959.404.json
+<> 2026-02-09T181930.404.html
+
+### get propertie
+GET https://stg.osl1.avangrid.net/mfeconfig/rge/preference_banner_messages
+Content-Type: application/x-www-form-urlencoded
+
+<> 2026-02-10T100948.404.html
+<> 2026-02-10T100931.404.html
+<> 2026-02-10T094852.404.json
+
+### get mfe config bgc
+GET https://stg.osl1.avangrid.net/biz/osl-data/v1/bgc/az-config/app-spa-csr
+Content-Type: application/json
+Authorization: Basic b3NsZGF0YWFwcDptb2IxbGU0cHA=
+
+<> 2026-02-11T131605.200.txt
+<> 2026-02-11T131514.200.txt
+<> 2026-02-11T131320.200.txt
+<> 2026-02-11T131233.200.txt
+
+### get mfe config cmp
+GET https://stg.osl1.avangrid.net/biz/osl-data/v1/cmp/az-config/app-spa-csr
+Content-Type: application/json
+Authorization: Basic b3NsZGF0YWFwcDptb2IxbGU0cHA=
+
+<> 2026-02-11T131643.200.txt
+
+### qat
+GET https://qat.osl1.avangrid.net/mfeconfig/cmp/app-spa-csr.json
+Content-Type: application/json
+Authorization: Basic b3NsZGF0YWFwcDptb2IxbGU0cHA=
+
+<> 2026-02-12T081905.200.json
+<> 2026-02-12T081710.200.json
+<> 2026-02-12T081650.200.json
+
+### stg
+GET https://stg.osl1.avangrid.net/mfeconfig/bgc/app-spa-csr.json
+Content-Type: application/json
+Authorization: Basic b3NsZGF0YWFwcDptb2IxbGU0cHA=
+
+<> 2026-02-12T130510.200.json
+<> 2026-02-12T081912.200.json
+<> 2026-02-12T081600.200.json
+<> 2026-02-11T135308.404.html
+<> 2026-02-11T134729.200.json
+<> 2026-02-11T134653.200.json
+
+### Supply history
+GET https://apsm.avangrid.com/nyseg/v1/accounts/supply-history
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{JWT_TOKEN}}
+Ocp-Apim-Subscription-Key: {{SUBSCRIPTION_KEY}}
+x-account: {{ACCOUNT}}
+x-call-source: W
+
+
+###10010000734 1000003073 10010000734 AUTOLOG: Exception Server Error thrown in EscoHistoryController.getEscoDetail()
+
+### outage stepOne local
+POST http://localhost:8080/public/reportOutage/stepOne
+Accept: application/json
+Content-Type: application/json
+
+{
+  "accountNumber": "01000007235335",
+  "phoneNumber": "1111111111",
+  "validateSecret": "1111",
+  "recaptcha": "0cAFcWeA6n7iWwp4jSCb75s2CH3b1m-bqL0WkY2ik4-Mvby3cFjpxAmBk-RO0VDN_Y7rQXgdtGP5si-ci5Q_03-GApr-O_94FRo01Qv9IUvbmhvqY_vwMXM2OntT7j0holS7r5uJmTxZCHBe18qA3iRdQxyz7BVm-Tr4wljJu1M2RQYo2_w8JIUeqUEqSiULLnNZatKA2ElOPHSx6BeJLPlsHFck2lkuGl0nt-LT4DEhBgFIHwvVQy7vKN13e1Ye3mFKTAqGwiz2v-wKzEaxVUk8DT5AzX7HGg0kbkXYP0snSBjH6nMsQQ7tAMP04HjDGLxPW2OEB2-QGFYbAqsxCMLDLpEBJiAgs72DQNsfK_ENBp5DOJNctwO5udoXIgTHXa8vdrKz-SuYTeVMFScYSRAWyUJPyjvQvf8u1j7sTCVzJmidfxeOrNfdXKw84ou2jnhdRDnaudPXcPs-KMt69Z6h71JYGvIUunSaxReb3E-cCGeqSp4plPuBapcZRFjF_gPfG_8t2Nkbz7Dy_0jX7obwn2H3jmnYmak3TtFTtMEa7Bn30VFazAIMWUiuzveiG7IijQDlAkFSNGgbK4x_LUkdoJh1Opr22OW6f65F9Tik-YsjzEGsJPyVWrZ5hIaqN4oBOcU-ksYHROeVNc_CY-XcPz1arrgg9bb1jk1l_gFTC5tF9_lIrmOJWDk8heh-To2bo_XP2z_0YhVef9gWKvPsJtB10aupcTHBHFtIOxmswqGspddhv4G5SEJDnS5JNyW13u63Wvfahv_MhKusWLjI5np4Ruddtghe0g_fTdeXs17qZ6f0ffg9yjVGIdlBSuo5-ZY7cRSKRtb_eTTCdCDVGKiY65TCdpGnlsCOYmmJkjQAY5NBJAQohO-XBZKFZCJz1ji4se0DQYpsxBexCc9oOi9YRxsIje3GLZYkvC9JRiTxjnYXDU5VOGM56DbiQWaN6XfpzIp-XGcIEpGgwohIvaR0kx0CLbXqRxTEP9152Ns4KBnYSqEArbrwKp7MpOueek2RIi8qSSbiglj9SRkBzTFi8KilVmug"
+}

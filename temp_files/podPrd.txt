@@ -1,0 +1,212 @@
+apiVersion: v1
+items:
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"kubernetes.io/ingress.class":"nginx","nginx.ingress.kubernetes.io/configuration-snippet":"more_set_headers \"Strict-Transport-Security: max-age=31536000; includeSubDomains; preload\";\nadd_header X-Frame-Options \"sameorigin\";\nadd_header X-Content-Type-Options nosniff;\n","nginx.ingress.kubernetes.io/rewrite-target":"/$2","nginx.ingress.kubernetes.io/ssl-redirect":"true"},"name":"app-spa-announce","namespace":"ibtxn"},"spec":{"rules":[{"host":"portal.ldev-nyseg.avangrid.us","http":{"paths":[{"backend":{"service":{"name":"app-spa-announce","port":{"number":80}}},"path":"/ee-announce(/|$)(.*)","pathType":"Prefix"}]}}],"tls":[{"hosts":["portal.ldev-nyseg.avangrid.us"],"secretName":"portal.ldev-nyseg.avangrid.us"}]}}
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        more_set_headers "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload";
+        add_header X-Frame-Options "sameorigin";
+        add_header X-Content-Type-Options nosniff;
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    creationTimestamp: "2026-02-20T17:47:37Z"
+    generation: 1
+    name: app-spa-announce
+    namespace: ibtxn
+    resourceVersion: "463367190"
+    uid: 4cf5494b-7365-4098-84b7-35d7cdc00c4b
+  spec:
+    rules:
+    - host: portal.ldev-nyseg.avangrid.us
+      http:
+        paths:
+        - backend:
+            service:
+              name: app-spa-announce
+              port:
+                number: 80
+          path: /ee-announce(/|$)(.*)
+          pathType: Prefix
+    tls:
+    - hosts:
+      - portal.ldev-nyseg.avangrid.us
+      secretName: portal.ldev-nyseg.avangrid.us
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.130.187.203
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"kubernetes.io/ingress.class":"nginx","nginx.ingress.kubernetes.io/configuration-snippet":"more_set_headers \"Strict-Transport-Security: max-age=31536000; includeSubDomains; preload\";\nadd_header X-Frame-Options \"sameorigin\";\nadd_header X-Content-Type-Options nosniff;\n","nginx.ingress.kubernetes.io/rewrite-target":"/$2","nginx.ingress.kubernetes.io/ssl-redirect":"true"},"name":"app-spa-esco-web","namespace":"ibtxn"},"spec":{"rules":[{"host":"portal.ldev-nyseg.avangrid.us","http":{"paths":[{"backend":{"service":{"name":"app-spa-esco-web","port":{"number":80}}},"path":"/app-spa-esco-web(/|$)(.*)","pathType":"Prefix"}]}},{"host":"portal.ldev-rge.avangrid.us","http":{"paths":[{"backend":{"service":{"name":"app-spa-esco-web","port":{"number":80}}},"path":"/app-spa-esco-web(/|$)(.*)","pathType":"Prefix"}]}}],"tls":[{"hosts":["portal.ldev-nyseg.avangrid.us"],"secretName":"portal.ldev-nyseg.avangrid.us"},{"hosts":["portal.ldev-rge.avangrid.us"],"secretName":"portal.ldev-rge.avangrid.us"}]}}
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        more_set_headers "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload";
+        add_header X-Frame-Options "sameorigin";
+        add_header X-Content-Type-Options nosniff;
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    creationTimestamp: "2026-01-28T22:21:30Z"
+    generation: 1
+    name: app-spa-esco-web
+    namespace: ibtxn
+    resourceVersion: "448737520"
+    uid: d24471ff-218b-4865-92cb-1d2643ab4bdf
+  spec:
+    rules:
+    - host: portal.ldev-nyseg.avangrid.us
+      http:
+        paths:
+        - backend:
+            service:
+              name: app-spa-esco-web
+              port:
+                number: 80
+          path: /app-spa-esco-web(/|$)(.*)
+          pathType: Prefix
+    - host: portal.ldev-rge.avangrid.us
+      http:
+        paths:
+        - backend:
+            service:
+              name: app-spa-esco-web
+              port:
+                number: 80
+          path: /app-spa-esco-web(/|$)(.*)
+          pathType: Prefix
+    tls:
+    - hosts:
+      - portal.ldev-nyseg.avangrid.us
+      secretName: portal.ldev-nyseg.avangrid.us
+    - hosts:
+      - portal.ldev-rge.avangrid.us
+      secretName: portal.ldev-rge.avangrid.us
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.130.187.203
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      jkube.eclipse.org/git-branch: 42c49df13783a79335e6cd9c804b83225c8a7d73
+      jkube.eclipse.org/git-commit: 42c49df13783a79335e6cd9c804b83225c8a7d73
+      jkube.eclipse.org/git-url: https://github.avangrid.net/WebTeam/app-spa-elp.git
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        more_set_headers "Strict-Transport-Security: max-age=31536000;
+                                                includeSubDomains; preload"; add_header X-Frame-Options "sameorigin"; add_header
+                                                X-Content-Type-Options nosniff;
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/use-regex: "true"
+    creationTimestamp: "2026-03-02T16:59:46Z"
+    generation: 1
+    labels:
+      app: cmp-app-spa-elp
+      app.kubernetes.io/managed-by: jkube
+      app.kubernetes.io/name: app-spa-elp
+      app.kubernetes.io/part-of: com.avangrid
+      app.kubernetes.io/version: 0.1.0-SNAPSHOT
+      group: com.avangrid
+      provider: jkube
+      version: 0.1.0-SNAPSHOT
+    name: cmp-app-spa-elp
+    namespace: ibtxn
+    resourceVersion: "469842852"
+    uid: 09e827ba-1ce3-4c1f-ad12-eefeb2dc2bfa
+  spec:
+    ingressClassName: nginx
+    rules:
+    - host: portal.ldev-cmp.avangrid.us
+      http:
+        paths:
+        - backend:
+            service:
+              name: cmp-app-spa-elp
+              port:
+                number: 80
+          path: /elp(/|$)(.*)
+          pathType: ImplementationSpecific
+    tls:
+    - hosts:
+      - portal.ldev-cmp.avangrid.us
+      secretName: portal.ldev-cmp.avangrid.us
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.130.187.203
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"kubernetes.io/ingress.class":"nginx","nginx.ingress.kubernetes.io/configuration-snippet":"more_set_headers \"Strict-Transport-Security: max-age=31536000; includeSubDomains; preload\";\nadd_header X-Frame-Options \"sameorigin\";\nadd_header X-Content-Type-Options nosniff;\n","nginx.ingress.kubernetes.io/rewrite-target":"/$2","nginx.ingress.kubernetes.io/ssl-redirect":"true"},"name":"ibtxn","namespace":"ibtxn"},"spec":{"rules":[{"host":"portal.ldev-nyseg.avangrid.us","http":{"paths":[{"backend":{"service":{"name":"ibtxn","port":{"number":80}}},"path":"/ibtxn(/|$)(.*)","pathType":"Prefix"}]}},{"host":"portal.ldev-rge.avangrid.us","http":{"paths":[{"backend":{"service":{"name":"ibtxn","port":{"number":80}}},"path":"/ibtxn(/|$)(.*)","pathType":"Prefix"}]}},{"host":"portal.ldev-cmp.avangrid.us","http":{"paths":[{"backend":{"service":{"name":"ibtxn","port":{"number":80}}},"path":"/ibtxn(/|$)(.*)","pathType":"Prefix"}]}}],"tls":[{"hosts":["portal.ldev-nyseg.avangrid.us"],"secretName":"portal.ldev-nyseg.avangrid.us"},{"hosts":["portal.ldev-rge.avangrid.us"],"secretName":"portal.ldev-rge.avangrid.us"},{"hosts":["portal.ldev-cmp.avangrid.us"],"secretName":"portal.ldev-cmp.avangrid.us"}]}}
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        more_set_headers "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload";
+        add_header X-Frame-Options "sameorigin";
+        add_header X-Content-Type-Options nosniff;
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    creationTimestamp: "2026-01-13T16:06:34Z"
+    generation: 1
+    name: ibtxn
+    namespace: ibtxn
+    resourceVersion: "438922841"
+    uid: 1d73c467-23b5-411c-8792-06cbb15e4ce4
+  spec:
+    rules:
+    - host: portal.ldev-nyseg.avangrid.us
+      http:
+        paths:
+        - backend:
+            service:
+              name: ibtxn
+              port:
+                number: 80
+          path: /ibtxn(/|$)(.*)
+          pathType: Prefix
+    - host: portal.ldev-rge.avangrid.us
+      http:
+        paths:
+        - backend:
+            service:
+              name: ibtxn
+              port:
+                number: 80
+          path: /ibtxn(/|$)(.*)
+          pathType: Prefix
+    - host: portal.ldev-cmp.avangrid.us
+      http:
+        paths:
+        - backend:
+            service:
+              name: ibtxn
+              port:
+                number: 80
+          path: /ibtxn(/|$)(.*)
+          pathType: Prefix
+    tls:
+    - hosts:
+      - portal.ldev-nyseg.avangrid.us
+      secretName: portal.ldev-nyseg.avangrid.us
+    - hosts:
+      - portal.ldev-rge.avangrid.us
+      secretName: portal.ldev-rge.avangrid.us
+    - hosts:
+      - portal.ldev-cmp.avangrid.us
+      secretName: portal.ldev-cmp.avangrid.us
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.130.187.203
+kind: List
+metadata:
+  resourceVersion: ""

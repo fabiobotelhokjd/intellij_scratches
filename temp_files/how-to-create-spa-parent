@@ -1,0 +1,305 @@
+To use the **Shared Resources** approach with the `maven-remote-resources-plugin`, you can package your `jib-nginx` and `jkube` folders into a JAR file and have all your projects automatically "pull" and use them.
+
+This is the best way to share these folders if your projects are in different Git repositories or if you want to avoid duplicating these folders everywhere.
+
+### Step 1: Create a "Resource Bundle" Project
+Create a simple Maven project (e.g., `app-shared-resources`) to hold the common files.
+
+**Directory Structure:**
+```text
+app-shared-resources/
+├── pom.xml
+└── src/
+    └── main/
+        └── resources/
+            ├── jib-nginx/ (move your files here)
+            └── jkube/     (move your files here)
+```
+
+**`pom.xml` for `app-shared-resources`:**
+```xml
+<project ...>
+    <groupId>com.avangrid</groupId>
+    <artifactId>app-shared-resources</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <build>
+        <plugins>
+            <!-- This plugin marks this JAR as a Resource Bundle -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-remote-resources-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+*Run `mvn install` on this project to put it in your local/remote repository.*
+
+---
+
+### Step 2: Configure the Parent POM
+In your **Parent POM**, add the configuration to "process" (unpack) these resources into every child project's `target` folder during the build.
+
+**Parent `pom.xml` configuration:**
+```xml
+<build>
+    <plugins>
+        <!-- 1. Automatically fetch and unpack the shared folders -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-remote-resources-plugin</artifactId>
+            <version>3.1.0</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>process</goal>
+                    </goals>
+                    <configuration>
+                        <resourceBundles>
+                            <resourceBundle>com.avangrid:app-shared-resources:1.0.0-SNAPSHOT</resourceBundle>
+                        </resourceBundles>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+        <!-- 2. Update Resources Plugin to use the UNPACKED files -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <executions>
+                <execution>
+                    <id>filter-jkube-resources</id>
+                    <phase>process-resources</phase>
+                    <goals><goal>copy-resources</goal></goals>
+                    <configuration>
+                        <outputDirectory>${project.build.directory}/jkube</outputDirectory>
+                        <resources>
+                            <resource>
+                                <!-- Files are unpacked here by the remote-resources-plugin -->
+                                <directory>${project.build.directory}/maven-shared-archive-resources/jkube</directory>
+                                <filtering>true</filtering>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>filter-jib-nginx-resources</id>
+                    <phase>process-resources</phase>
+                    <goals><goal>copy-resources</goal></goals>
+                    <configuration>
+                        <outputDirectory>${project.build.directory}/jib-nginx</outputDirectory>
+                        <resources>
+                            <resource>
+                                <directory>${project.build.directory}/maven-shared-archive-resources/jib-nginx</directory>
+                                <filtering>true</filtering>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </build>
+</build>
+```
+
+---
+
+### Step 3: Use it in Child Projects
+Your child projects now only need to extend the parent. They **no longer need** to have their own `jib-nginx` or `jkube` folders locally.
+
+1.  **Delete** the `jib-nginx/` and `jkube/` folders from your child projects.
+2.  **Add** the `<parent>` tag to the child `pom.xml`.
+3.  When you run `mvn clean install` on the child, Maven will:
+    *   Download the `app-shared-resources.jar`.
+    *   Unpack it into `target/maven-shared-archive-resources/`.
+    *   Filter and copy them to `target/jkube` and `target/jib-nginx`.
+    *   Build your Jib image and Kubernetes manifests using these shared files.
+
+### Why this is better:
+*   **One Source of Truth**: If you need to change a Nginx configuration, you change it in `app-shared-resources` once, and every project gets the update.
+*   **Clean Workspace**: No more duplicating the same deployment files across 10+ different repositories.
+*   **Version Control**: You can version your shared resources (e.g., `1.0.0`, `1.1.0`) just like any other library.
+
+*****************************************************************************************************************************************************************************************************
+*****************************************************************************************************************************************************************************************************
+*****************************************************************************************************************************************************************************************************
+# To consolidate multiple similar projects into a parent-child relationship in Maven, you can extract all the common configurations (properties, profiles, and plugin setups) into a **Parent POM**.              
+*****************************************************************************************************************************************************************************************************
+*****************************************************************************************************************************************************************************************************
+
+This will allow you to maintain the complex `jib-maven-plugin` and `kubernetes-maven-plugin` configurations in one place, while your individual projects only specify their unique metadata (`artifactId`, `name`, `description`).
+
+### Step 1: Create the Parent Project
+
+Create a new directory for your parent project (e.g., `app-spa-parent`) and create a `pom.xml` inside it. Use `pom` packaging.
+
+#### Parent `pom.xml` Structure
+Move all the common parts from your current `pom.xml` here:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.avangrid</groupId>
+    <artifactId>app-spa-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <!-- Common Plugin Versions -->
+        <node.version>v24.11.1</node.version>
+        <npm.version>11.6.2</npm.version>
+        <jib-maven-plugin.version>3.5.1</jib-maven-plugin.version>
+        <kubernetes-maven-plugin.version>1.19.0</kubernetes-maven-plugin.version>
+        <!-- ... add all other versions here ... -->
+
+        <!-- Common Defaults -->
+        <activeProfiles>dev,local</activeProfiles>
+        <npm.build.script>build</npm.build.script>
+        <jib-maven-plugin.image>${acr.server}/${project.artifactId}:${current.time}</jib-maven-plugin.image>
+        <frontend.npmDownloadRoot>https://nexus.avangrid.net/repository/npm-registry/npm/-/</frontend.npmDownloadRoot>
+        <frontend.nodeDownloadRoot>https://nodejs.org/dist/</frontend.nodeDownloadRoot>
+    </properties>
+
+    <profiles>
+        <!-- Move all common profiles (local, dev, qat, stg, prod, os-windows, etc.) here -->
+        <profile>
+            <id>local</id>
+            <properties>
+                <jib-maven-plugin.image>${project.artifactId}:${current.time}</jib-maven-plugin.image>
+                <opcoHostName>kubernetes.docker.internal</opcoHostName>
+            </properties>
+        </profile>
+        <!-- ... other profiles ... -->
+    </profiles>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Move the complex plugin configurations here -->
+                <plugin>
+                    <groupId>com.google.cloud.tools</groupId>
+                    <artifactId>jib-maven-plugin</artifactId>
+                    <version>${jib-maven-plugin.version}</version>
+                    <configuration>
+                        <to>
+                            <image>${jib-maven-plugin.image}</image>
+                        </to>
+                        <!-- Keep the entrypoint and common paths -->
+                        <container>
+                            <entrypoint>
+                                <arg>nginx</arg>
+                                <arg>-g</arg>
+                                <arg>daemon off;</arg>
+                            </entrypoint>
+                        </container>
+                        <extraDirectories>
+                            <paths>
+                                <path>
+                                    <from>${project.basedir}/jib-nginx</from>
+                                    <into>/etc/nginx/</into>
+                                </path>
+                                <path>
+                                    <from>${project.build.directory}/dist/${project.artifactId}</from>
+                                    <into>/usr/share/nginx/html/${service.context.path}</into>
+                                </path>
+                            </paths>
+                        </extraDirectories>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.eclipse.jkube</groupId>
+                    <artifactId>kubernetes-maven-plugin</artifactId>
+                    <version>${kubernetes-maven-plugin.version}</version>
+                    <configuration>
+                        <namespace>${opcoNodeName}</namespace>
+                        <!-- Common kubernetes resources config -->
+                    </configuration>
+                </plugin>
+                <!-- ... other plugins (frontend, resources, spotless) ... -->
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
+```
+
+### Step 2: Handle Shared Folders (`jib-nginx` and `jkube`)
+
+Since these folders are identical across projects, you have two options:
+
+1.  **Multi-Module Approach (Recommended if projects are in the same repo):**
+    Put the parent POM in the root and keep projects as sub-modules. You can reference the common folders via relative paths like `${project.parent.basedir}/common/jib-nginx`.
+2.  **Shared Resources Plugin:**
+    Create a small "resources" project that jars up the `jib-nginx` and `jkube` folders. Use the `maven-remote-resources-plugin` in your parent POM to automatically pull and unpack these into every project's `target` folder before the build.
+
+### Step 3: Update Your Child Projects
+
+Modify the `pom.xml` of your existing projects to extend the parent. They will now be very short.
+
+#### Child `pom.xml` Example:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project ...>
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.avangrid</groupId>
+        <artifactId>app-spa-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../app-spa-parent/pom.xml</relativePath> <!-- Adjust path if needed -->
+    </parent>
+
+    <artifactId>app-spa-esco-web</artifactId>
+    <name>ESCO Web App</name>
+    <description>Frontend for ESCO</description>
+
+    <properties>
+        <!-- Only override unique properties -->
+        <opcoNodeName>ibtxn</opcoNodeName>
+        <opcoHostName>portal.ldev-nyseg.avangrid.us</opcoHostName>
+        <service.context.path>escoweb</service.context.path>
+        <service-name>${project.artifactId}</service-name>
+    </properties>
+
+    <build>
+        <plugins>
+            <!-- Just list the plugins you want to activate; config is inherited -->
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.eclipse.jkube</groupId>
+                <artifactId>kubernetes-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+
+### Summary of Steps:
+1.  **Create a Parent Project**: Set `<packaging>pom</packaging>`.
+2.  **Centralize Properties**: Move all common `<version>` tags and `<properties>` to the parent.
+3.  **Centralize Profiles**: Move the `<profiles>` section (dev, qat, prod, etc.) to the parent.
+4.  **Use Plugin Management**: Move all complex `<plugin>` configurations to `<pluginManagement>` in the parent.
+5.  **Simplify Children**: In each project, add the `<parent>` tag and delete all the duplicated code.
+6.  **Parameterize**: Use variables like `${project.artifactId}` and `${service.context.path}` in the parent POM so it adapts to each child project automatically.
+

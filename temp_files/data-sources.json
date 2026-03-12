@@ -1,0 +1,1210 @@
+{
+  "folders": {},
+  "connections": {
+    "postgres-jdbc-1842e8681e5-59953728c2d91d1d": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "COMMON PROD",
+      "save-password": true,
+      "configuration": {
+        "host": "psql-osl-prd.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl-prd.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "closeIdleConnection": false,
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "show-database-statistics": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "read-keys-with-columns": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-1842e869c14-27912e7f80a019dd": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "QAT COMMON",
+      "save-password": true,
+      "configuration": {
+        "host": "psql-osl-qat.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl-qat.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "closeIdleConnection": false,
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "show-database-statistics": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "read-keys-with-columns": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-1842e880a88-3593d39ea9f794ac": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "FORMS DB QAT",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "configuration": {
+        "host": "psql-forms1-qat.postgres.database.azure.com",
+        "port": "5432",
+        "database": "forms",
+        "url": "jdbc:postgresql://psql-forms1-qat.postgres.database.azure.com:5432/forms",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "closeIdleConnection": false,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "show-database-statistics": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "read-keys-with-columns": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "@dbeaver-chosen-role@": ""
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-1842e8c5d56-2ea4b022749ac688": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "DEV COMMON",
+      "save-password": true,
+      "configuration": {
+        "host": "psql-osl1-dev.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl1-dev.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "closeIdleConnection": false,
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "show-database-statistics": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "read-keys-with-columns": "false",
+          "@dbeaver-chosen-role@": ""
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-18afb945314-43a4c09343b3c3d3": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "DEV COMMON DDL",
+      "save-password": true,
+      "configuration": {
+        "host": "psql-osl-dev.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl-dev.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "closeIdleConnection": false,
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "show-database-statistics": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "read-keys-with-columns": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-18bcec0e02f-33cf8a2856b17771": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "QAT COMMON DDL",
+      "save-password": true,
+      "configuration": {
+        "host": "psql-osl-qat.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl-qat.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "closeIdleConnection": false,
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "show-database-statistics": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "read-keys-with-columns": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-18f7d399889-688a3ba3a21130f4": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "QAT COMMON 1",
+      "save-password": true,
+      "configuration": {
+        "host": "psql-osl1-qat.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl1-qat.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "closeIdleConnection": false,
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "show-database-statistics": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "read-keys-with-columns": "false",
+          "@dbeaver-chosen-role@": ""
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-1905c410db8-64be9326cedd7a87": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "COMMON PROD 1",
+      "save-password": true,
+      "configuration": {
+        "host": "psql-osl1-prd.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl1-prd.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "closeIdleConnection": false,
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "show-database-statistics": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "read-keys-with-columns": "false",
+          "@dbeaver-chosen-role@": ""
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-1905c419ee5-1b3d51ad32402e0d": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "FORMS DB PROD 1",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "configuration": {
+        "host": "psql-forms1-prd.postgres.database.azure.com",
+        "port": "5432",
+        "database": "forms",
+        "url": "jdbc:postgresql://psql-forms1-prd.postgres.database.azure.com:5432/forms",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "closeIdleConnection": false,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "show-database-statistics": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "read-keys-with-columns": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "@dbeaver-chosen-role@": ""
+        },
+        "auth-model": "native"
+      }
+    },
+    "mysql8-1920a832680-7b20f9782bdcfbcf": {
+      "provider": "mysql",
+      "driver": "mysql8",
+      "name": "develop",
+      "save-password": true,
+      "configuration": {
+        "host": "34.23.158.193",
+        "port": "3306",
+        "database": "develop",
+        "url": "jdbc:mysql://34.23.158.193:3306/develop",
+        "configurationType": "MANUAL",
+        "type": "dev",
+        "closeIdleConnection": true,
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-19bd6b0f390-2b8d9afa30aafd18": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "STG COMMON",
+      "save-password": true,
+      "configuration": {
+        "host": "psql-osl1-stg.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl1-stg.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "closeIdleConnection": false,
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "show-database-statistics": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "read-keys-with-columns": "false",
+          "@dbeaver-chosen-role@": ""
+        },
+        "auth-model": "native"
+      }
+    }
+  },
+  "connection-types": {
+    "dev": {
+      "name": "Development",
+      "color": "255,255,255",
+      "description": "Regular development database",
+      "auto-commit": true,
+      "confirm-execute": false,
+      "confirm-data-change": false,
+      "smart-commit": false,
+      "smart-commit-recover": true,
+      "auto-close-transactions": true,
+      "close-transactions-period": 1800,
+      "auto-close-connections": true,
+      "close-connections-period": 14400
+    }
+  },
+  "folders": {
+    "DEV": {},
+    "QAT": {},
+    "PRD": {}
+  },
+  "connections": {
+    "postgres-jdbc-1831a15aaf5-a90d299dd0d9381": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "CT",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "DEV",
+      "configuration": {
+        "host": "psql-csw1-dev.postgres.database.azure.com",
+        "port": "5432",
+        "database": "csw",
+        "url": "jdbc:postgresql://psql-csw1-dev.postgres.database.azure.com:5432/csw",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-1831a15b80e-28c1f678fa2dbc75": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "ME",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "DEV",
+      "configuration": {
+        "host": "psql-cswme1-dev.postgres.database.azure.com",
+        "port": "5432",
+        "database": "csw",
+        "url": "jdbc:postgresql://psql-cswme1-dev.postgres.database.azure.com:5432/csw",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-1831a15c121-fe2643a705c919b": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "NY",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "DEV",
+      "configuration": {
+        "host": "psql-cswny1-dev.postgres.database.azure.com",
+        "port": "5432",
+        "database": "csw",
+        "url": "jdbc:postgresql://psql-cswny1-dev.postgres.database.azure.com:5432/csw",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-1831a17131b-de3d6c0371bac9": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "CT",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "QAT",
+      "configuration": {
+        "host": "psql-csw1-qat.postgres.database.azure.com",
+        "port": "5432",
+        "database": "csw",
+        "url": "jdbc:postgresql://psql-csw1-qat.postgres.database.azure.com:5432/csw",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-1831a171384-7081ba26c1297772": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "ME",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "QAT",
+      "configuration": {
+        "host": "psql-cswme1-qat.postgres.database.azure.com",
+        "port": "5432",
+        "database": "csw",
+        "url": "jdbc:postgresql://psql-cswme1-qat.postgres.database.azure.com:5432/csw",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-1831a171439-3e021e472033f985": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "NY",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "QAT",
+      "configuration": {
+        "host": "psql-cswny1-qat.postgres.database.azure.com",
+        "port": "5432",
+        "database": "csw",
+        "url": "jdbc:postgresql://psql-cswny1-qat.postgres.database.azure.com:5432/csw",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-1831a17370a-4c324a179eaaf117": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "CT",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "PRD",
+      "configuration": {
+        "host": "psql-csw1-prd.postgres.database.azure.com",
+        "port": "5432",
+        "database": "csw",
+        "url": "jdbc:postgresql://psql-csw1-prd.postgres.database.azure.com:5432/csw",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-1831a1737af-3496a46824fca94a": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "ME",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "PRD",
+      "configuration": {
+        "host": "psql-cswme1-prd.postgres.database.azure.com",
+        "port": "5432",
+        "database": "csw",
+        "url": "jdbc:postgresql://psql-cswme1-prd.postgres.database.azure.com:5432/csw",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-1831a17381e-30b6e2a78d57cafa": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "NY",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "PRD",
+      "configuration": {
+        "host": "psql-cswny1-prd.postgres.database.azure.com",
+        "port": "5432",
+        "database": "csw",
+        "url": "jdbc:postgresql://psql-cswny1-prd.postgres.database.azure.com:5432/csw",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-183228c3d64-6f34bfe91b659c86": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "FORMS",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "DEV",
+      "configuration": {
+        "host": "psql-forms-dev.postgres.database.azure.com",
+        "port": "5432",
+        "database": "forms",
+        "url": "jdbc:postgresql://psql-forms-dev.postgres.database.azure.com:5432/forms",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-183228c65a3-37d8a4a924444c42": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "FORMS",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "QAT",
+      "configuration": {
+        "host": "psql-forms-qat.postgres.database.azure.com",
+        "port": "5432",
+        "database": "forms",
+        "url": "jdbc:postgresql://psql-forms-qat.postgres.database.azure.com:5432/forms",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-183228c8e03-4a35bfd03059d263": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "FORMS",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "PRD",
+      "configuration": {
+        "host": "psql-forms1-prd.postgres.database.azure.com",
+        "port": "5432",
+        "database": "forms",
+        "url": "jdbc:postgresql://psql-forms1-prd.postgres.database.azure.com:5432/forms",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-183588cc458-b3ce9fe15744478": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "COMMON",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "DEV",
+      "configuration": {
+        "host": "psql-osl-dev.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl-dev.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-183588db488-6d2ff25e8fd6f2ee": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "COMMON",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "QAT",
+      "configuration": {
+        "host": "psql-osl1-qat.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl1-qat.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "properties": {
+          "connectTimeout": "20",
+          "loginTimeout": "20"
+        },
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-183588e649f-7714d2d7da92840d": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "COMMON",
+      "save-password": true,
+      "navigator-show-only-entities": true,
+      "navigator-hide-folders": true,
+      "navigator-hide-virtual": true,
+      "folder": "PRD",
+      "configuration": {
+        "host": "psql-osl1-prd.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl1-prd.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "PostgreSQL Binaries",
+        "type": "dev",
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-18d560a24f0-1c70a9e9e253f333": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "DEV-Maintenance",
+      "save-password": true,
+      "configuration": {
+        "host": "psql-osl-dev.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl-dev.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-18e0fff7084-4bfc50d78289d5e3": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "PRD-Maintenance",
+      "save-password": true,
+      "folder": "PRD",
+      "configuration": {
+        "host": "psql-osl1-prd.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl1-prd.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-18e67a7acd2-5727ffd82f442ec": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "QAT-Maintenance",
+      "save-password": true,
+      "configuration": {
+        "host": "psql-osl1-qat.postgres.database.azure.com",
+        "port": "5432",
+        "database": "agrcommon",
+        "url": "jdbc:postgresql://psql-osl1-qat.postgres.database.azure.com:5432/agrcommon",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-1921f08df74-232148eb609f3b23": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "TransactionalSites",
+      "save-password": true,
+      "folder": "PRD",
+      "configuration": {
+        "host": "psql-txn-prd.postgres.database.azure.com",
+        "port": "5432",
+        "database": "txn",
+        "url": "jdbc:postgresql://psql-txn-prd.postgres.database.azure.com:5432/txn",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-1921f7b17c2-c6b2cec77abda14": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "CommunityAgency",
+      "save-password": true,
+      "folder": "QAT",
+      "configuration": {
+        "host": "psql-txn1-qat.postgres.database.azure.com",
+        "port": "5432",
+        "database": "txn",
+        "url": "jdbc:postgresql://psql-txn1-qat.postgres.database.azure.com:5432/txn",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false",
+          "@dbeaver-show-template-db@": "false",
+          "@dbeaver-show-unavailable-db@": "false",
+          "@dbeaver-read-all-data-types-db@": "false",
+          "@dbeaver-use-prepared-statements-db@": "false",
+          "postgresql.dd.plain.string": "false",
+          "postgresql.dd.tag.string": "false"
+        },
+        "auth-model": "native"
+      },
+      "custom-properties": {
+        "database.meta.separate.connection": "false"
+      }
+    },
+    "postgres-jdbc-194dc4b0acc-7e0bc5934bf1c60e": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "NewConnections",
+      "save-password": true,
+      "folder": "PRD",
+      "configuration": {
+        "host": "psql-bp-prd.postgres.database.azure.com",
+        "port": "5432",
+        "database": "bp",
+        "url": "jdbc:postgresql://psql-bp-prd.postgres.database.azure.com:5432/bp",
+        "configurationType": "MANUAL",
+        "home": "postgresql_client",
+        "type": "dev",
+        "provider-properties": {},
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-1842e8681e5-59953728c2d91d1d": {
+      "#connection": {
+        "user": "agrcommon@psql-osl-prd",
+        "password": "xSfbaEAGFkWBHyl3FhZhw05s8g!VvLw4"
+      }
+    },
+    "postgres-jdbc-1842e869c14-27912e7f80a019dd": {
+      "#connection": {
+        "user": "agrcommon@psql-osl-qat",
+        "password": "SkMbULy!TJqQ5NV9%PQRDn6OTFpZK0k#"
+      }
+    },
+    "postgres-jdbc-1842e880a88-3593d39ea9f794ac": {
+      "#connection": {
+        "user": "forms",
+        "password": "6wVzovABdLARGgoWfFiTJQ8jJL0dEGF9"
+      }
+    },
+    "postgres-jdbc-1842e8c5d56-2ea4b022749ac688": {
+      "#connection": {
+        "user": "agrcommon",
+        "password": "mLL7PAmvU0SY8LZzxDv9uyxpYb0zQfIo"
+      }
+    },
+    "postgres-jdbc-18afb945314-43a4c09343b3c3d3": {
+      "#connection": {
+        "user": "postgres@psql-osl-dev",
+        "password": "Q2xxqHh2IV7tF5LPNQ$nyx3mdMlkVInD"
+      }
+    },
+    "postgres-jdbc-18bcec0e02f-33cf8a2856b17771": {
+      "#connection": {
+        "user": "postgres@psql-osl-qat",
+        "password": "CsvW#UFqyDsQr90VcIPOWuMpRcZhBeBM"
+      }
+    },
+    "postgres-jdbc-18f7d399889-688a3ba3a21130f4": {
+      "#connection": {
+        "user": "agrcommon",
+        "password": "SkMbULy!TJqQ5NV9%PQRDn6OTFpZK0k#"
+      }
+    },
+    "postgres-jdbc-1905c410db8-64be9326cedd7a87": {
+      "#connection": {
+        "user": "agrcommon",
+        "password": "xSfbaEAGFkWBHyl3FhZhw05s8g!VvLw4"
+      }
+    },
+    "postgres-jdbc-1905c419ee5-1b3d51ad32402e0d": {
+      "#connection": {
+        "user": "forms",
+        "password": "KEFMaeQOT3IuZdewLZpDW1$9c549pAPy"
+      }
+    },
+    "mysql8-1920a832680-7b20f9782bdcfbcf": {
+      "#connection": {
+        "user": "avangrid_external_access",
+        "password": "Tr^5H8F%)P?v!w\u003dJ"
+      }
+    },
+    "postgres-jdbc-19bd6b0f390-2b8d9afa30aafd18": {
+      "#connection": {
+        "user": "agrcommon",
+        "password": "V64IEuf$o6dFATIljZ$f!ex2Y%bi3bun"
+      }
+    },
+    "postgres-jdbc-1831a15aaf5-a90d299dd0d9381": {
+      "#connection": {
+        "user": "csw_usr",
+        "password": "mpQjUTQF0!ONRq9zUSfBC0xgMu971rty"
+      }
+    },
+    "postgres-jdbc-1831a15b80e-28c1f678fa2dbc75": {
+      "#connection": {
+        "user": "csw_usr",
+        "password": "bUl1lkIVS5nuDQ%Z6RbQhgimhWY58U2u"
+      }
+    },
+    "postgres-jdbc-1831a15c121-fe2643a705c919b": {
+      "#connection": {
+        "user": "csw_usr",
+        "password": "AzmxKiMPl0kOLyYJvaTzy#mU5jemu5w!"
+      }
+    },
+    "postgres-jdbc-1831a17131b-de3d6c0371bac9": {
+      "#connection": {
+        "user": "csw_usr",
+        "password": "Fq9pHRiyBFTxBl9ZJoq%z!WKixOddV6s"
+      }
+    },
+    "postgres-jdbc-1831a171384-7081ba26c1297772": {
+      "#connection": {
+        "user": "csw_usr",
+        "password": "FBh4nQ4ZjslsXufTLbjS0P5uQZFGjcgX"
+      }
+    },
+    "postgres-jdbc-1831a171439-3e021e472033f985": {
+      "#connection": {
+        "user": "csw_usr",
+        "password": "AxaPWX!q18#iLtciQ8wl#8xy1yVgbSVT"
+      }
+    },
+    "postgres-jdbc-1831a17370a-4c324a179eaaf117": {
+      "#connection": {
+        "user": "csw_usr",
+        "password": "nvDOeY#7RuU!IHrLKCkYW14rqO52BTOO"
+      }
+    },
+    "postgres-jdbc-1831a1737af-3496a46824fca94a": {
+      "#connection": {
+        "user": "csw_usr",
+        "password": "%rO3mNzmJS$LEfVII3$rrDZzx!46dhzd"
+      }
+    },
+    "postgres-jdbc-1831a17381e-30b6e2a78d57cafa": {
+      "#connection": {
+        "user": "csw_usr",
+        "password": "dcd6%ksw6KBLPB##Vrf20DinWXky2unI"
+      }
+    },
+    "postgres-jdbc-183228c3d64-6f34bfe91b659c86": {
+      "#connection": {
+        "user": "frm_usr@psql-forms-dev",
+        "password": "QdjbE4cV5XR67ISs1na6WPNkyPciwmkg"
+      }
+    },
+    "postgres-jdbc-183228c65a3-37d8a4a924444c42": {
+      "#connection": {
+        "user": "frm_usr@psql-forms-qat",
+        "password": "00rR6Ap1mkHfo8KA%Gm5A2939H%qpOK6"
+      }
+    },
+    "postgres-jdbc-183228c8e03-4a35bfd03059d263": {
+      "#connection": {
+        "user": "frm_usr",
+        "password": "ovEb6ih$aV0miw5yWP4olwDRy$GU0NDT"
+      }
+    },
+    "postgres-jdbc-183588cc458-b3ce9fe15744478": {
+      "#connection": {
+        "user": "agrcommon_usr@psql-osl-dev",
+        "password": "NrFo1!XA!bHN4JVlN2#AfIzrQ9GdDQqg"
+      }
+    },
+    "postgres-jdbc-183588db488-6d2ff25e8fd6f2ee": {
+      "#connection": {
+        "user": "agrcommon_usr",
+        "password": "7A%w03bCOkyAKbZUj2fatC7wkvY7%NsF"
+      }
+    },
+    "postgres-jdbc-183588e649f-7714d2d7da92840d": {
+      "#connection": {
+        "user": "agrcommon_usr",
+        "password": "hsY9uFn58fN2cm2tkvlQlVX#1Zv31s9P"
+      }
+    },
+    "postgres-jdbc-18d560a24f0-1c70a9e9e253f333": {
+      "#connection": {
+        "user": "digiops_usr@psql-osl-dev",
+        "password": "dtPk8GuXhEYdvi$bezovkTm7JNb32MZ8"
+      }
+    },
+    "postgres-jdbc-18e0fff7084-4bfc50d78289d5e3": {
+      "#connection": {
+        "user": "digiops_usr",
+        "password": "2uYnfxZwbXStmt$cCpqfGM5qfThkTCu#"
+      }
+    },
+    "postgres-jdbc-18e67a7acd2-5727ffd82f442ec": {
+      "#connection": {
+        "user": "digiops_usr",
+        "password": "if8bFCnqrNeZz9iDe9TlwkikF2z%EBfZ"
+      }
+    },
+    "postgres-jdbc-1921f08df74-232148eb609f3b23": {
+      "#connection": {
+        "user": "txn",
+        "password": "8Xqo7yjn9l3zSKzXONOyTrneg3Qz0!5V"
+      }
+    },
+    "postgres-jdbc-1921f7b17c2-c6b2cec77abda14": {
+      "#connection": {
+        "user": "txn_usr",
+        "password": "G!Ynmz6a7HLEzc8hMFpQ5y1w2qGWOxTH"
+      }
+    }
+  }

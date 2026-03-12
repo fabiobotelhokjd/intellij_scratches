@@ -1,0 +1,1426 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cmp-mock-data
+data:
+  db.json: |-
+    {
+      "cmp_elp": {
+        "configuration": {
+          "endpoints": {
+            "submitElpApplication": "http://localhost:3000/cmp/v1/elp/submitApplication",
+            "vendorInfo": "http://localhost:3000/cmp/v1/elp/vendorInfo",
+            "getUserList": "http://localhost:3000/cmp/v1/elp/admin/search",
+            "createAddUser": "http://localhost:3000/cmp/v1/elp/admin/save",
+            "capAgencyList": "http://localhost:3000/cmp/v1/elp/admin/capAgencyList",
+            "programYear": "http://localhost:3000/cmp/v1/elp/admin/programYear",
+            "updateProgramYear": "http://localhost:3000/cmp/v1/elp/admin/updateProgramYear",
+            "searchUser": "http://localhost:3000/cmp/v1/elp/admin/searchUser",
+            "getUserDetails": "http://localhost:3000/cmp/v1/elp/admin/:id",
+            "update": "http://localhost:3000/cmp/v1/elp/admin/update",
+            "delete": "http://localhost:3000/cmp/v1/elp/admin/delete/:id",
+            "password": "http://localhost:3000/cmp/v1/elp/admin/reset/password"
+          },
+          "maintenance": {
+            "active": false,
+            "maintenanceUrl": "/content/maintenance"
+          },
+          "layout": {
+            "hideSidebar": [
+              "/content/404",
+              "/content/session-expired",
+              "/content/unauthorized",
+              "/content/maintenance",
+              "/admin/users",
+              "/admin/login"
+            ]
+          }
+        },
+        "content": {
+          "assets": {
+            "leafsIcon": "images/logos/leafs.svg",
+            "opcosImages": "images/logos/:opcoLogo:"
+          },
+          "header": {
+            "logo": {
+              "src": "https://portal.lqat.cmpco.com/app-assets/images/cmp/logo.svg",
+              "alt": "cmp logos",
+              "href": "/"
+            },
+            "title": "Electric Lifeline Program",
+            "topLinksHTML": "<ul class=\"d-flex list-unstyled top-header-list mb-0\"><li class=\"pe-2 border-pipe\"><a class=\"top-header-link\" href=\"/\">Home</a> </li><li class=\"px-2\"><a class=\"top-header-link\" href=\"https://lqat.cmpco.com/en/support/contactus \">Contact us</a></li></ul>"
+          },
+          "footer": {
+            "logo": {
+              "src": "https://portal.lqat.cmpco.com/app-assets/images/cmp/logo.svg",
+              "href": "/",
+              "alt": "Avangrid Logo"
+            },
+            "links": [
+              {
+                "href": "https://lqat.cmpco.com",
+                "label": "Home",
+                "styleClass": "px-2 border-pipe"
+              },
+              {
+                "href": "https://lqat.cmpco.com/en/support/contactus",
+                "label": "Emergency Contact",
+                "styleClass": "px-2 border-pipe"
+              },
+              {
+                "href": "https://lqat.cmpco.com/en/support/contactus",
+                "label": "Contact Us",
+                "styleClass": "px-2 border-pipe"
+              },
+              {
+                "href": "https://lqat.cmpco.com/sitemap/",
+                "label": "Site Map",
+                "styleClass": "px-2 border-pipe"
+              },
+              {
+                "href": "https://lqat.cmpco.com/privacynotice/",
+                "label": "Legal Disclaimer",
+                "styleClass": "px-2"
+              }
+            ],
+            "copyright": "© 2025 AVANGRID Inc. All rights reserved."
+          },
+          "sidebar": {
+            "options": {
+              "highlightWhenActive": true
+            },
+            "items": [
+              {
+                "routerLink": "https://lqat.cmpco.com/suppliersandpartners/energysupplycompaniesescos/contactinformation",
+                "eventName": "/login",
+                "label": "Electricity ESCOs",
+                "icon": "",
+                "roles": ["ROLE"]
+              },
+              {
+                "routerLink": "https://lqat.cmpco.com/suppliersandpartners/electricsuppliers/competitiveelectricityproviderservice",
+                "eventName": "[/home, /usage-request]",
+                "label": "Competitive Electricity Market",
+                "icon": "",
+                "roles": ["ROLE"]
+              },
+              {
+                "routerLink": "https://lqat.cmpco.com/suppliersandpartners/servicesandresources/ebtandelectronicdatainterchange-edi-",
+                "eventName": "[/home]",
+                "label": "EBT and ETI",
+                "icon": "",
+                "roles": ["ROLE"]
+              },
+              {
+                "routerLink": "https://lqat.cmpco.com/suppliersandpartners/regulatoryinformation/cmp_transmission_services",
+                "eventName": "[/home]",
+                "label": "Transmission Services",
+                "icon": "",
+                "roles": ["ROLE"]
+              },
+              {
+                "routerLink": "https://lqat.cmpco.com/suppliersandpartners/energysupplycompaniesescos/contactinformation",
+                "eventName": "[/home]",
+                "label": "ELP",
+                "icon": "",
+                "roles": ["ROLE"]
+              },
+              {
+                "routerLink": "https://jumspilot.cmpco.com",
+                "eventName": "[/home]",
+                "label": "JUMS",
+                "icon": "",
+                "roles": ["ROLE"]
+              }
+            ]
+          },
+          "pages": {
+            "loginContent": {
+              "title": "Secure Log in",
+              "windowTitle": "Login | ELP",
+              "styleClass": "col-md-8 col-lg-6 text-start",
+              "inputs": [
+                {
+                  "name": "userName",
+                  "label": "Username",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter your username",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "username is required",
+                    "required": true,
+                    "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+                    "matchPatternErrMsg": "Invalid Email"
+                  }
+                },
+                {
+                  "name": "password",
+                  "label": "Password",
+                  "type": "password",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter your password",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "password is required",
+                    "required": true
+                  }
+                }
+              ],
+              "buttons": [
+                {
+                  "label": "Login",
+                  "styleClass": "btn btn-primary rounded-4 px-4 py-2",
+                  "disabled": "loginForm.invalid",
+                  "action": "submit"
+                }
+              ],
+              "responseStatusSearch": [
+                {
+                  "message": "Please provide a valid Account Number and zip code",
+                  "status": "400.001",
+                  "severity": "error"
+                },
+                {
+                  "message": "We're having a problem, try later",
+                  "status": "500.002",
+                  "severity": "error"
+                }
+              ]
+            },
+            "elpHomeContent": {
+              "title": "ELP Application",
+              "windowTitle": "Home | ELP",
+              "styleClass": "col-md-8 col-lg-6 text-start",
+              "inputs": [
+                {
+                  "name": "vendorName",
+                  "label": "Vendor Id/Name",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2 bg-light text-muted pe-none",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Vendor Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "vendor name is required",
+                    "required": false,
+                    "pattern": "",
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "programYear",
+                  "label": "Program Year",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2 bg-light text-muted pe-none",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Year",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "year is required",
+                    "required": false
+                  }
+                },
+                {
+                  "name": "dateApplicationEntered",
+                  "label": "Date Application Entered",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2 bg-light text-muted pe-none",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Date",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false
+                  }
+                },
+                {
+                  "name": "accountNumber",
+                  "label": "CMP Account Number",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Account Number",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "Account number is required",
+                    "required": true,
+                    "minLength": 10,
+                    "maxLength": 12,
+                    "pattern": "^[0-9]{10,}$",
+                    "matchPatternErrMsg": "Account number must be 10 digits"
+                  }
+                },
+                {
+                  "name": "accountHolderFirstName",
+                  "label": "CMP Account Holder First Name",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter First Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false
+                  }
+                },
+                {
+                  "name": "accountHolderLastName",
+                  "label": "CMP Account Holder Last Name",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter last Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false
+                  }
+                },
+                {
+                  "name": "povertyLevelAboveBelow75",
+                  "label": "Federal Poverty Guidelines(At or Below 75%)",
+                  "type": "select",
+                  "options": ["At or below 75%", "76%-100%", "101%-125%", "Above 125%"],
+                  "styleClass": "form-select",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false
+                  }
+                },
+                {
+                  "name": "applicantName",
+                  "label": "Applicant Name",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Applicant Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false
+                  }
+                },
+                {
+                  "name": "annualIncome",
+                  "label": "Annual Income",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Annual Income",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false
+                  }
+                },
+                {
+                  "name": "heapEligible",
+                  "label": "HEAP Eligible",
+                  "type": "checkbox",
+                  "styleClass": "form-check-input",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false
+                  }
+                },
+                {
+                  "name": "memberOfHousehold",
+                  "label": "CMP Name a Member of this Household",
+                  "type": "checkbox",
+                  "styleClass": "form-check-input",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Stahelski",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false
+                  }
+                },
+                {
+                  "name": "subsidizedWithOxyVent",
+                  "label": "Subsidizes with Oxy/Vent",
+                  "type": "checkbox",
+                  "checked": true,
+                  "styleClass": "form-check-input",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false
+                  }
+                },
+                {
+                  "name": "subsidizedHousing",
+                  "label": "Subsidized Housing",
+                  "type": "checkbox",
+                  "checked": true,
+                  "styleClass": "form-check-input",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false
+                  }
+                },
+                {
+                  "name": "oxygenVentilator",
+                  "label": "Oxygen/Ventilator",
+                  "type": "checkbox",
+                  "checked": true,
+                  "styleClass": "form-check-input",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false
+                  }
+                }
+              ],
+              "buttons": [
+                {
+                  "label": "Clear",
+                  "styleClass": "agr-button-secondary",
+                  "action": "button",
+                  "value": "cancel"
+                },
+                {
+                  "label": "Submit",
+                  "styleClass": "agr-button-primary",
+                  "disabled": "elpAppForm.invalid",
+                  "action": "submit",
+                  "value": "submit"
+                }
+              ],
+              "responseStatusSearch": [
+                {
+                  "message": "Please provide a valid Account Number and zip code",
+                  "status": "400.001",
+                  "severity": "error"
+                },
+                {
+                  "message": "We're having a problem, try later",
+                  "status": "500.002",
+                  "severity": "error"
+                }
+              ]
+            },
+            "filterUsersContent": {
+              "title": "Filter Users",
+              "windowTitle": "Home | ELP",
+              "styleClass": "col-md-8 col-lg-6 text-start",
+              "inputs": [
+                {
+                  "name": "userName",
+                  "label": "Username",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter User Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": true,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "lastName",
+                  "label": "Last Name",
+                  "type": "number",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Last Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false
+                  }
+                },
+                {
+                  "name": "capAgencyId",
+                  "label": "CAP Agency Id",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter CAP Id",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false,
+                    "matchPatternErrMsg": ""
+                  }
+                },
+                {
+                  "name": "capAgencyName",
+                  "label": "CAP Agency Name",
+                  "type": "select",
+                  "styleClass": "form-select",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Cap Name",
+                  "info": "",
+                  "options": ["75%", "76%-100%", "101%-200%"],
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false,
+                    "matchPatternErrMsg": ""
+                  }
+                },
+                {
+                  "name": "emailAddress",
+                  "label": "Email Address",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Email",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false,
+                    "matchPatternErrMsg": ""
+                  }
+                }
+              ],
+              "buttons": [
+                {
+                  "label": "Back",
+                  "styleClass": "agr-button-secondary",
+                  "action": "cancel",
+                  "value": "back"
+                },
+                {
+                  "label": "Search",
+                  "styleClass": "agr-button-primary",
+                  "disabled": "filterUsersForm.invalid",
+                  "action": "submit",
+                  "value": "submit"
+                }
+              ]
+            },
+            "resetProgramYearContent": {
+              "title": "Reset Program Year",
+              "windowTitle": "Home | ELP",
+              "styleClass": "col-md-8 col-lg-6 text-start",
+              "inputs": [
+                {
+                  "name": "activeProgramYear",
+                  "label": "Program year",
+                  "type": "number",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-12",
+                  "placeholder": "Enter Year",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "Year is required",
+                    "required": true,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "activeStatus",
+                  "label": "Program Year Active",
+                  "type": "checkbox",
+                  "styleClass": "form-check-input border-success fs-6 rounded-0 mt-2 shadow-none ml-0",
+                  "containerStyleClass": "form-group col-md-12",
+                  "checkboxContainerStyleClass": "d-flex align-items-center gap-2",
+                  "labelStyleClass": "form-label mb-0 mt-2",
+                  "placeholder": "",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "Date is required",
+                    "required": true,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                }
+              ],
+              "buttons": [
+                {
+                  "label": "Update",
+                  "styleClass": "agr-button-primary align-items-center",
+                  "action": "button",
+                  "value": "cancel"
+                }
+              ]
+            },
+            "addUserModalContent": {
+              "title": "Add New User",
+              "windowTitle": "Home | ELP",
+              "styleClass": "col-md-8 col-lg-6 text-start",
+              "inputs": [
+                {
+                  "name": "userName",
+                  "label": "Username",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter User Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": true,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "capAgencyId",
+                  "label": "CAP Agency Id",
+                  "type": "number",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter User Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": false
+                  }
+                },
+                {
+                  "name": "capAgencyName",
+                  "label": "CAP Agency Name",
+                  "type": "select",
+                  "styleClass": "form-select",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter CAP Name",
+                  "options": ["75%", "76%-100%", "101%-200%"],
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": false,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "firstName",
+                  "label": "First Name",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter First Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": false,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "lastName",
+                  "label": "Last Name",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Last Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": false,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "emailAddress",
+                  "label": "Email Address",
+                  "type": "email",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Email Address",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "",
+                    "required": false,
+                    "matchPatternErrMsg": ""
+                  }
+                },
+                {
+                  "name": "conformEmail",
+                  "label": "Confirm Email Address",
+                  "type": "email",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Confirm Email Address",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": false,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                }
+              ],
+              "buttons": [
+                {
+                  "label": "Cancel",
+                  "styleClass": "agr-button-secondary",
+                  "action": "button",
+                  "value": "cancel"
+                },
+                {
+                  "label": "Add",
+                  "styleClass": "agr-button-primary",
+                  "disabled": "addUserForm.invalid",
+                  "action": "submit",
+                  "value": "submit"
+                }
+              ]
+            },
+            "editUserModalContent": {
+              "title": "Edit User",
+              "windowTitle": "Home | ELP",
+              "styleClass": "col-md-8 col-lg-6 text-start",
+              "inputs": [
+                {
+                  "name": "userName",
+                  "label": "Username",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2 bg-light text-muted pe-none",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter User Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": true,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "capAgencyId",
+                  "label": "Active CAP Agency Id/Name",
+                  "type": "number",
+                  "styleClass": "form-control rounded-4 py-2 bg-light text-muted pe-none",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter User Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": true
+                  }
+                },
+                {
+                  "name": "capAgencyName",
+                  "label": "CAP Agency Name",
+                  "type": "select",
+                  "styleClass": "form-select",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter CAP Name",
+                  "options": ["75%", "76%-100%", "101%-200%"],
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": true,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "emailAddress",
+                  "label": "Email Address",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Email Address",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": true,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "firstName",
+                  "label": "First Name",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter First Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": true,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "lastName",
+                  "label": "Last Name",
+                  "type": "text",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Last Name",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": true,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "lastLogin",
+                  "label": "Date Created :",
+                  "type": "date",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Confirm Email Address",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": true,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "lastLogin",
+                  "label": "Date Last Loggen On",
+                  "type": "date",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Email Address",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": true,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                },
+                {
+                  "name": "lastModified",
+                  "label": "Date Password Last Modified",
+                  "type": "date",
+                  "styleClass": "form-control rounded-4 py-2",
+                  "containerStyleClass": "form-group col-md-6",
+                  "placeholder": "Enter Email Address",
+                  "info": "",
+                  "validators": {
+                    "requiredErrMsg": "user name is required",
+                    "required": true,
+                    "matchPatternErrMsg": "Invalid name"
+                  }
+                }
+              ],
+              "buttons": [
+                {
+                  "label": "Delete User",
+                  "styleClass": "agr-button-secondary me-auto border-0",
+                  "action": "button",
+                  "value": "cancel"
+                },
+                {
+                  "label": "Back",
+                  "styleClass": "agr-button-secondary",
+                  "action": "button",
+                  "value": "cancel"
+                },
+                {
+                  "label": "Update",
+                  "styleClass": "agr-button-primary",
+                  "disabled": "editUserForm.invalid",
+                  "action": "submit",
+                  "value": "submit"
+                }
+              ]
+            },
+            "resetPasswordModalContent": {
+              "title": "Reset Password",
+              "windowTitle": "Home | ELP",
+              "styleClass": "col-md-8 col-lg-6 text-start",
+              "desc_one": "Reset Password for",
+              "desc_two": "Email address:",
+              "buttons": [
+                {
+                  "label": "Send",
+                  "styleClass": "agr-button-primary align-items-center",
+                  "action": "button"
+                }
+              ]
+            },
+            "confirmDialogModalContent": {
+              "title": "Confirm Changes",
+              "windowTitle": "Home | ELP",
+              "styleClass": "col-md-8 col-lg-6 text-start",
+              "buttons": [
+                {
+                  "label": "Cancel",
+                  "styleClass": "agr-button-secondary align-items-center",
+                  "action": "button"
+                },
+                {
+                  "label": "Confirm",
+                  "styleClass": "agr-button-primary align-items-center",
+                  "action": "submit"
+                }
+              ]
+            },
+            "saveDialogModalContent": {
+              "title": "Record Submitted",
+              "windowTitle": "Home | ELP",
+              "styleClass": "col-md-8 col-lg-6 text-start",
+              "buttons": [
+                {
+                  "label": "Close",
+                  "styleClass": "agr-button-primary align-items-center",
+                  "action": "button"
+                }
+              ]
+            },
+    
+            "elpUsersContent": {
+              "title": "Users",
+              "containerStyleClass": "container-fluid bg-white d-flex flex-column gap-4 p-4 rounded-4",
+              "headerContainerStyleClass": "d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3",
+              "titleStyleClass": "fw-medium fst-normal",
+              "contentContainerStyleClass": "d-flex flex-column gap-3 w-100 my-2",
+              "actionsContainerStyleClass": "d-flex flex-column flex-md-row justify-content-end align-items-md-center gap-3",
+              "opcoContainerStyleClass": "d-flex justify-content-md-end align-items-center gap-3 flex-fill order-2 order-md-1 me-md-3",
+              "opcoLabelStyleClass": "",
+              "dropdownButtonStyleClass": "btn d-flex align-items-center gap-2 shadow-none text-success",
+              "dropdownIconName": "CarrotDown",
+              "dropdownIconStyleClass": "agr-text-color-neutral-500",
+              "dropdownMenuStyleClass": "dropdown-menu",
+              "dropdownItemStyleClass": "dropdown-item",
+              "addUserButtonStyleClass": "agr-button-secondary d-flex align-items-center gap-2 p-2 border-0",
+              "filterUserButtonStyleClass": "agr-button-secondary d-flex align-items-center gap-2 p-2",
+              "addUserIconStyleClass": "agr-text-color-neutral-500",
+              "exportButtonStyleClass": "agr-button-secondary d-flex align-items-center gap-2",
+              "exportIconStyleClass": "agr-text-color-neutral-500 rotate-180",
+              "editButtonStyleClass": "agr-button-primary order-1 order-md-2 d-flex align-items-center gap-2",
+              "editIconStyleClass": "bi bi-pencil",
+              "saveButtonStyleClass": "agr-button-primary order-1 order-md-2",
+              "table": {
+                "containerStyleClass": "table-responsive",
+                "styleClass": "table table-hover",
+                "headerStyleClass": "table-light",
+                "rowOddStyleClass": "bg-gray-050",
+                "cellStyleClass": "opacity-75 py-3 px-2 border-0 align-middle",
+                "cellEditStyleClass": "py-3 px-2 border-0 align-middle",
+                "cellCheckboxContainerStyleClass": "d-flex justify-content-center",
+                "cellButtonContainerStyleClass": "py-3 px-2 border-0 text-center align-middle",
+                "columns": [
+                  {
+                    "id": "loginId",
+                    "title": "Login ID",
+                    "styleClass": "py-3 px-2 border-0 fw-medium align-middle",
+                    "cellStyleClass": "py-3 px-2 border-0 align-middle",
+                    "fieldName": "loginId",
+                    "type": "text",
+                    "editable": false,
+                    "inputType": "text"
+                  },
+                  {
+                    "id": "password",
+                    "title": "Password",
+                    "styleClass": "py-3 px-2 border-0 fw-medium align-middle",
+                    "cellStyleClass": "py-3 px-2 border-0 align-middle",
+                    "fieldName": "password",
+                    "type": "text",
+                    "editable": true,
+                    "inputType": "password"
+                  },
+                  {
+                    "id": "shortName",
+                    "title": "Short Name",
+                    "styleClass": "py-3 px-2 border-0 fw-medium d-none d-md-table-cell align-middle",
+                    "cellStyleClass": "py-3 px-2 border-0 align-middle d-none d-md-table-cell",
+                    "fieldName": "shortName",
+                    "type": "text",
+                    "editable": true,
+                    "inputType": "text"
+                  },
+                  {
+                    "id": "longName",
+                    "title": "Long Name",
+                    "styleClass": "py-3 px-2 border-0 fw-medium d-none d-lg-table-cell align-middle",
+                    "cellStyleClass": "py-3 px-2 border-0 align-middle d-none d-lg-table-cell",
+                    "fieldName": "longName",
+                    "type": "text",
+                    "editable": true,
+                    "inputType": "text"
+                  },
+                  {
+                    "id": "energyConsultant",
+                    "title": "Energy Consultant",
+                    "styleClass": "py-3 px-2 border-0 fw-medium text-center align-middle",
+                    "cellStyleClass": "py-3 px-2 border-0 align-middle",
+                    "fieldName": "energyConsultant",
+                    "type": "checkbox",
+                    "editable": true,
+                    "inputType": "checkbox"
+                  },
+                  {
+                    "id": "actions",
+                    "title": "",
+                    "styleClass": "py-3 px-2 border-0 fw-medium align-middle",
+                    "cellStyleClass": "py-3 px-2 border-0 text-center align-middle",
+                    "fieldName": "",
+                    "type": "actions",
+                    "editable": false,
+                    "inputType": ""
+                  }
+                ]
+              },
+              "inputStyleClass": "form-control shadow-none",
+              "checkboxStyleClass": "form-check-input border-success fs-5 rounded-0 shadow-none m-0",
+              "deleteButtonStyleClass": "btn btn-outline-danger rounded-pill px-4 py-1 d-flex align-items-baseline gap-2",
+              "deleteIconStyleClass": "bi bi-trash",
+              "noRecords": {
+                "cellStyleClass": "text-center py-5",
+                "containerStyleClass": "d-flex flex-column align-items-center gap-2",
+                "emptyIconStyleClass": "bi bi-inbox fs-1 text-muted",
+                "textStyleClass": "mb-0 text-muted",
+                "emptyMessage": "No records available"
+              },
+              "selectedOpco": "cmp",
+              "opcos": ["cmp"]
+            },
+            "homeContent": {
+              "title": "Users",
+              "windowTitle": "Home | ELP",
+              "styleClass": "col-md-8 col-lg-6 text-start",
+              "paragraph1": "This page lists your customer data files and links to RG&E’s business practices and policies.",
+              "paragraph2": "If you can’t find what you’re looking for, please contact your RG&E <a class=\"text-primary\" href=\"https://lqat.rge.com/suppliersandpartners/energysupplycompaniesescos/contactinformation\" target=\"_blank\">electricity supplier relations coordinator</a> and/or your RG&E <a class=\"text-primary\" href=\"https://lqat.rge.com/suppliersandpartners/energysupplycompaniesescos/contactinformation\" target=\"_blank\">natural gas transportation representative</a>.",
+              "addUserBtnTxt": "Add New User",
+              "filterUserBtnTxt": "Filter Users",
+              "programYearBtnTxt": "Set Program year",
+              "headerContainerStyleClass": "d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3",
+              "titleStyleClass": "fw-medium fst-normal",
+              "contentContainerStyleClass": "d-flex flex-column gap-3 w-100 my-2",
+              "actionsContainerStyleClass": "d-flex flex-column flex-md-row justify-content-end align-items-md-center gap-3",
+              "addUserButtonStyleClass": "agr-button-secondary d-flex align-items-center gap-2 p-2 border-0",
+              "addUserIconStyleClass": "agr-text-color-neutral-500",
+              "filterUserButtonStyleClass": "agr-button-secondary d-flex align-items-center gap-2 p-2",
+              "saveButtonStyleClass": "agr-button-primary order-1 order-md-2",
+    
+              "table": {
+                "styleClass": "table table-striped table-hover",
+                "pageSize": 5,
+                "columns": [
+                  {
+                    "id": "1",
+                    "title": "User Id"
+                  },
+                  {
+                    "id": "2",
+                    "title": "User Name"
+                  },
+                  {
+                    "id": "3",
+                    "title": "Cap Agency name"
+                  },
+                  {
+                    "id": "4",
+                    "title": "Length"
+                  },
+                  {
+                    "id": "5",
+                    "title": "Email Address"
+                  },
+                  {
+                    "id": "6",
+                    "title": ""
+                  },
+                  {
+                    "id": "7",
+                    "title": ""
+                  }
+                ]
+              }
+            },
+            "genericMessagesContent": {
+              "types": [
+                {
+                  "key": "not-found",
+                  "path": "/content/404",
+                  "windowTitle": "404 - Content not found | ELP",
+                  "sessionValidation": false,
+                  "pageHeader": {
+                    "pageTitle": "404 - Not found",
+                    "pageIconUrl": null,
+                    "titleAlignCenter": false,
+                    "pageSubtitle": null,
+                    "pageHeaderParagraph": null
+                  },
+                  "bannerImage": "/app-assets/images/common/generic-content/agr-common-maintenance.svg",
+                  "pageBannerDescription": "error icon",
+                  "genericContentMessage": "<p>We're sorry. The page / content you are looking for is not available.</p>"
+                },
+                {
+                  "key": "error",
+                  "path": "/content/error",
+                  "windowTitle": "Error | ELP",
+                  "sessionValidation": false,
+                  "pageHeader": {
+                    "pageTitle": "Error",
+                    "pageIconUrl": null,
+                    "titleAlignCenter": false,
+                    "pageSubtitle": null,
+                    "pageHeaderParagraph": "<h5 class=\"error-message \"><strong>Something went wrong</strong> </h5>"
+                  },
+                  "bannerImage": "/app-assets/images/common/generic-content/agr-common-maintenance.svg",
+                  "pageBannerDescription": "error warning icon",
+                  "genericContentMessage": "<p>We are experiencing a problem processing your request.</p>"
+                },
+                {
+                  "key": "unauthorized",
+                  "path": "/content/unauthorized",
+                  "windowTitle": "Unauthorized  | ELP",
+                  "sessionValidation": false,
+                  "pageHeader": {
+                    "pageTitle": null,
+                    "pageIconUrl": null,
+                    "titleAlignCenter": false,
+                    "pageSubtitle": null,
+                    "pageHeaderParagraph": "<h5 class=\"error-message \"><strong><i class=\"pi pi-lock\" ></i> Access Privilege:</strong> </h5>"
+                  },
+                  "bannerImage": "/app-assets/images/common/generic-content/agr-common-maintenance.svg",
+                  "pageBannerDescription": "this user is unauthorized icon",
+                  "genericContentMessage": "<div class=\"col-md-12\"><h4>We are sorry,</h4> <p>you do not have enough access privileges to access this content. <br> Please check with a site administrator</p></div>",
+                  "buttons": []
+                },
+                {
+                  "key": "maintenance",
+                  "path": "/content/maintenance",
+                  "windowTitle": "Maintenance | ELP",
+                  "sessionValidation": false,
+                  "pageHeader": {
+                    "pageTitle": "Thank you for visiting",
+                    "pageIconUrl": null,
+                    "titleAlignCenter": true,
+                    "pageSubtitle": null,
+                    "pageHeaderParagraph": "<h3 class=\"error-message \"><strong><i class=\"pi pi-wrench\"></i>&nbsp; Maintenance.</strong> </h3>"
+                  },
+                  "bannerImage": "https://portal.ldev-cmpco.avangrid.us/app-assets/images/common/generic-content/agr-common-maintenance.svg",
+                  "pageBannerDescription": "warning icon",
+                  "genericContentMessage": "Thank you for visiting.<br><br>Our website will be temporarily unavailable on Thursday, October 28th from 7:00 p.m. to 10:00 p.m., while we perform routine maintenance to enhance our service to you.  <br><br>If your power is out, please call us at 800.572.1131. If you have an emergency, please call 911.<br><br>For all other needs, please come back to our website after 10:00pm. We apologize for any inconvenience and thank you for your patience."
+                },
+                {
+                  "key": "session-expired",
+                  "path": "/content/session-expired",
+                  "windowTitle": "Session Expired | ELP",
+                  "sessionValidation": true,
+                  "pageHeader": {
+                    "pageTitle": "Session Expired",
+                    "pageIconUrl": null,
+                    "titleAlignCenter": false,
+                    "pageSubtitle": null,
+                    "pageHeaderParagraph": null
+                  },
+                  "bannerImage": "/app-assets/images/common/generic-content/agr-common-maintenance.svg",
+                  "pageBannerDescription": "window icon",
+                  "genericContentMessage": "<p>Your Session has expired.<br> Thank you for using the Avangrid ELP Admin portal. If you need to continue, please login again.</p>",
+                  "buttons": [
+                    {
+                      "label": "Home page",
+                      "action": "submit",
+                      "href": "/"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "pagination": {
+            "styleClass": "d-flex justify-content-end",
+            "containerStyleClass": "pagination pagination-sm mb-0 d-flex flex-column flex-md-row justify-content-end align-items-start align-items-md-center gap-2 w-100",
+            "buttonStyleClass": "page-link text-success d-flex justify-content-center align-items-center p-2 rounded-pill shadow-none",
+            "pageNumberStyleClass": "page-link d-flex justify-content-center align-items-center px-3 py-2 text-center rounded-pill shadow-none text-success",
+            "pageNumberActiveStyleClass": "page-link d-flex justify-content-center align-items-center px-3 py-2 text-center rounded-pill shadow-none text-white",
+            "iconStyleClass": "d-flex align-items-center justify-content-center rounded-circle"
+          },
+          "errorHandling": [
+            {
+              "code": 401,
+              "message": "",
+              "redirectPath": "",
+              "forceLogout": false,
+              "severity": "error",
+              "apiList": []
+            },
+            {
+              "code": 400,
+              "message": "",
+              "redirectPath": "",
+              "forceLogout": false,
+              "severity": "error",
+              "apiList": []
+            },
+            {
+              "code": 403,
+              "message": "",
+              "redirectPath": "",
+              "forceLogout": false,
+              "severity": "error",
+              "apiList": []
+            },
+            {
+              "code": 404,
+              "message": "Not found",
+              "redirectPath": "",
+              "forceLogout": false,
+              "severity": "error",
+              "apiList": []
+            },
+            {
+              "code": 404.004,
+              "message": "Marketer not found",
+              "redirectPath": "",
+              "forceLogout": false,
+              "severity": "error",
+              "apiList": []
+            },
+            {
+              "code": 409,
+              "message": "",
+              "redirectPath": "",
+              "forceLogout": false,
+              "severity": "error",
+              "apiList": []
+            },
+            {
+              "code": 422,
+              "message": "",
+              "redirectPath": "",
+              "forceLogout": false,
+              "severity": "error",
+              "apiList": []
+            },
+            {
+              "code": 500,
+              "message": "",
+              "redirectPath": "",
+              "forceLogout": false,
+              "severity": "error",
+              "apiList": []
+            },
+            {
+              "code": 503,
+              "message": "",
+              "redirectPath": "",
+              "forceLogout": false,
+              "severity": "error",
+              "apiList": []
+            },
+            {
+              "code": 504,
+              "message": "",
+              "redirectPath": "",
+              "forceLogout": false,
+              "severity": "error",
+              "apiList": []
+            },
+            {
+              "code": 500.003,
+              "message": "SAP internal server error - Not able to process the request for this account",
+              "redirectPath": "",
+              "forceLogout": false,
+              "severity": "error",
+              "apiList": []
+            },
+            {
+              "code": 500.004,
+              "message": "SAP internal server error - Not able to process the request for this account",
+              "redirectPath": "",
+              "forceLogout": false,
+              "severity": "error",
+              "apiList": []
+            }
+          ]
+        },
+        "shared": {
+          "usStates": [],
+          "fields": {
+            "userId": {
+              "name": "userId",
+              "label": "User ID",
+              "type": "inputtext",
+              "required": true,
+              "requiredMessage": "This field is required",
+              "pattern": "^[\\S]{8,50}$",
+              "patternMessage": "Please enter a valid User ID between 8 and 50 characters. Letters, number and special characters are allowed."
+            }
+          },
+          "buttons": {
+            "searchSubmit": {
+              "label": "Search",
+              "action": "submit",
+              "styleClass": ""
+            }
+          }
+        }
+      },
+      "submitElpApplication": {
+        "returncode": 0,
+        "status": "200",
+        "message": "Application record submitted for SAP Contract Account:"
+      },
+      "vendorInfo": {
+        "vendorName": "Western Maine Community Action",
+        "dateApplicationEntered": "2025-01-01",
+        "programYear": 2025
+      },
+    
+      "getUserList": {
+        "content": [
+          {
+            "id": 1,
+            "userName": "nagesh",
+            "capAgencyId": 159,
+            "firstName": "testnagesh",
+            "lastName": "jangatestnagesh",
+            "emailAddress": "nagesh.ravi@example.com",
+            "capAgencyName": "OXYZEEFnagesh"
+          },
+          {
+            "id": 2,
+            "userName": "srikanth",
+            "capAgencyId": 160,
+            "firstName": "testsrikanth",
+            "lastName": "jangatestsrikanth",
+            "emailAddress": "srikanth.ravi@example.com",
+            "capAgencyName": "OXYZEEFsrikanth"
+          },
+          {
+            "id": 37,
+            "userName": "naresh",
+            "capAgencyId": 171,
+            "firstName": "nareshreddy",
+            "lastName": "vadalatest",
+            "emailAddress": "naresh.ravi@example.com",
+            "capAgencyName": "OXYZEEFnaresh"
+          },
+          {
+            "id": 41,
+            "userName": "arjun",
+            "capAgencyId": 172,
+            "firstName": "arjun",
+            "lastName": "vadalaarjun",
+            "emailAddress": "arjun.ravi@example.com",
+            "capAgencyName": "OXYZEEFarjun"
+          },
+          {
+            "id": 42,
+            "userName": "arjuntest",
+            "capAgencyId": 174,
+            "firstName": "arjuntest",
+            "lastName": "vadalaarjuntest",
+            "emailAddress": "testarjun.ravi@example.com",
+            "capAgencyName": "OXYZEEFarjuntest"
+          }
+        ],
+        "totalElements": 12,
+        "totalPages": 3,
+        "page": 1,
+        "pageSize": 5
+      },
+    
+      "createAddUser": {
+        "apiStatus": 200,
+        "apiStatusCode": "SUCCESS",
+        "apiMessage": "User added successfully"
+      },
+      "capAgencyList": [
+        {
+          "id": 1,
+          "capAgencyId": 64,
+          "capAgencyName": "Coastal Economic Development Corp"
+        },
+        {
+          "id": 2,
+          "capAgencyId": 68,
+          "capAgencyName": "Western Maine CommunityAction, Inc."
+        }
+      ],
+      "programYear": {
+        "id": 1,
+        "activeProgramYear": 2025,
+        "activeStatus": true,
+        "code": null,
+        "message": null
+      },
+      "updateProgramYear": {
+        "apiStatus": 200,
+        "apiStatusCode": "SUCCESS",
+        "apiMessage": "Updated Active Program year",
+        "data": {
+          "id": 1,
+          "activeProgramYear": 2026,
+          "activeStatus": true
+        }
+      },
+      "searchUser": {
+        "content": [
+          {
+            "id": 1,
+            "userName": "srinivas",
+            "capAgencyId": "68",
+            "firstName": "srinivas",
+            "lastName": "janga",
+            "emailAddress": "srinivas.ravi@example.com",
+            "capAgencyName": "Western Maine Community Action"
+          }
+        ],
+        "totalElements": 1,
+        "totalPages": 1,
+        "page": 1,
+        "pageSize": 10
+      },
+      "getUserDetails": {
+        "id": 35,
+        "userName": "srikanthtest123",
+        "capAgencyId": 169,
+        "capAgencyName": "Coastal Economic Development Corp",
+        "firstName": "testsrikanthtest",
+        "lastName": "jangatestsrikanthtest",
+        "emailAddress": "srikanthtest.ravi@example.com",
+        "creationDate": "11/12/2025",
+        "lastLogin": "11/12/2025",
+        "lastModified": "11/12/2025",
+        "apiError": null
+      },
+      "updateDetails": {
+        "apiStatus": 200,
+        "apiStatusCode": "SUCCESS",
+        "apiMessage": "Data updated successfully",
+        "data": {
+          "id": 36,
+          "userName": "naveentest",
+          "capAgencyId": 170,
+          "firstName": "naveenreddy123",
+          "lastName": "vadala",
+          "emailAddress": "naveen.ravi@example.com",
+          "capAgencyName": "OXYZEEFnaveen"
+        }
+      },
+      "delete": {
+        "apiStatus": 200,
+        "apiStatusCode": "SUCCESS",
+        "apiMessage": "Deleted Successfully!",
+        "data": ""
+      },
+      "password": {
+        "success": "true"
+      }
+    }
+    
+  routes.json: |-
+    {
+      "/cmp/v1/az-config/app-spa-elp": "/cmp_elp",
+      "/cmp/v1/elp/submitApplication": "/submitElpApplication",
+      "/cmp/v1/elp/vendorInfo": "/vendorInfo",
+      "/cmp/v1/elp/admin/search": "/getUserList",
+      "/cmp/v1/elp/admin/save": "/createAddUser",
+      "/cmp/v1/elp/admin/capAgencyList": "/capAgencyList",
+      "/cmp/v1/elp/admin/programYear": "/programYear",
+      "/cmp/v1/elp/admin/updateProgramYear": "/updateProgramYear",
+      "/cmp/v1/elp/admin/searchUser": "/searchUser",
+      "/cmp/v1/elp/admin/update": "/updateDetails",  
+      "/cmp/v1/elp/admin/delete/:id": "/delete",
+      "/cmp/v1/elp/admin/reset/password": "/password",
+      "/cmp/v1/elp/admin/:id": "/getUserDetails"
+    }

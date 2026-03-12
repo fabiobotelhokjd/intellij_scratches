@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mock-server
+  labels:
+    app: mock-server
+    app.kubernetes.io/managed-by: jkube
+    app.kubernetes.io/name: app-spa-elp
+    app.kubernetes.io/part-of: com.avangrid
+    group: com.avangrid
+    provider: jkube
+  annotations:
+    configmap.jkube.io/update-on-change: mock-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mock-server
+  template:
+    metadata:
+      labels:
+        app: mock-server
+        app.kubernetes.io/managed-by: jkube
+        app.kubernetes.io/name: app-spa-elp
+        app.kubernetes.io/part-of: com.avangrid
+        group: com.avangrid
+        provider: jkube
+    spec:
+      containers:
+      - name: mock-server
+        image: node:20-slim
+        workingDir: /app
+        command: [ "sh", "-c", "npm install -g json-server && json-server --watch db.json --routes routes.json --port 3000 --host 0.0.0.0" ]
+        ports:
+          - containerPort: 3000
+        volumeMounts:
+          - name: mock-data
+            mountPath: /app
+      volumes:
+          - name: mock-data
+            configMap:
+              name: cmp-mock-data # You'll need to create this from your mock-server folder
+
+#  kubectl apply -f src/main/jkube/configmap-mock.yaml -n ibtxn
+#  kubectl apply -f src/main/jkube/deployment-mock.yaml -n ibtxn
+#  kubectl apply -f src/main/jkube/service-mock.yaml -n ibtxn
+# curl http://mock-server.ibtxn.svc.cluster.local:3000/cmp/v1/elp/vendorInfo
